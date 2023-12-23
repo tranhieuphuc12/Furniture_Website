@@ -55,12 +55,96 @@
                                 class="fs-7 position-absolute top-70 start-80 translate-middle badge rounded-pill bg-light text-dark">
                                 0
 
-                            </span></button>
-                    <li class="nav-item"><a class="nav-link text-light fs-4" href="#"><i
-                                class="bi bi-person-fill"></i></a></li>
-
+                            </span></button>                  
                     </li>
+                    <li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle text-light fs-4" href="#"
+						role="button" data-bs-toggle="dropdown" aria-expanded="false"><i
+							class="bi bi-person-fill"></i></a>
+						<ul class="dropdown-menu">
+							<li><button type="button" class="nav-link text-dark"
+									data-bs-toggle="modal" data-bs-target="#modalLoginForm">
+									Login</button></li>
+							<li><hr class="dropdown-divider"></li>
+							<li><button type="button" class="nav-link text-dark"
+									data-bs-toggle="modal" data-bs-target="#modalSignUpForm">
+									Sign Up</button></li>
+
+						</ul> <!-- Modal Login-->
+						<div class="modal fade" id="modalLoginForm" tabindex="-1"
+							aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+
+										<h5 class="modal-title" id="exampleModalLabel">Login</h5>
+
+										<button type="button" class="btn-close"
+											data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+									<div class="modal-body">
+										<form action="LoginServlet" method="post">
+											<div class="mb-3">
+												<label class="form-label">Email Address Or Username</label>
+												<input type="text" class="form-control" id="username"
+													name="username" placeholder="Username" />
+											</div>
+											<div class="mb-3">
+												<label class="form-label">Password</label> <input
+													type="password" class="form-control" id="password"
+													name="password" placeholder="Password" />
+											</div>
+											<div class="mb-3 form-check">
+												<input type="checkbox" class="form-check-input"
+													id="rememberMe" /> <label class="form-check-label"
+													for="rememberMe">Remember me</label>
+											</div>
+											<div class="modal-footer d-block">
+												<button type="submit" class="btn btn-warning float-end">Submit</button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div> <!-- Modal Sign Up -->
+						<div class="modal fade" id="modalSignUpForm" tabindex="-1"
+							aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
+										<button type="button" class="btn-close"
+											data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+									<div class="modal-body">
+										<form action="SignUpServlet" method="post">
+											<div class="mb-3">
+												<label class="form-label">Email Address Or Username</label>
+												<input type="text" class="form-control" id="username"
+													name="username" placeholder="Username" />
+											</div>										
+											<div class="mb-3">
+												<label class="form-label">Password</label> <input
+													type="password" class="form-control" id="password"
+													name="password" placeholder="Password" />
+											</div>
+											<div class="mb-3 form-check">
+												<input type="checkbox" class="form-check-input" id="signup" />
+												<label class="form-check-label" for="signup">By
+													clicking Sign Up, you agree to our Terms, Privacy Policy
+													and Cookies Policy.</label>
+											</div>
+											<div class="modal-footer d-block">
+
+												<button type="submit" class="btn btn-warning float-end">Submit</button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div></li>
                 </ul>
+                
             </div>
         </div>
 
