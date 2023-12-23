@@ -1,6 +1,6 @@
 <!-- <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%> -->
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html>
 
 <head>
@@ -65,22 +65,18 @@
         </div>
 
     </nav>
+    <hr class=" text-secondary">
     <!-- End Navbar -->
 
-    <div class="myBackgroundOverlay mt-100px">
-        <div class="container ">
-            <h6 class="title_h6 h6 text-light text-center pt-100px">
-                CUSTOM SETUPS</h6>
-            <h1 class="title_h1 text-light text-center">
-                <p>Let’s build your dream <br> working space</p>
-            </h1>
-            <div class="text-center">
-                <a class="shop_collections_btn btn btn-warning mt-5" href="#">Shop now &emsp;<i
-                        class="bi bi-arrow-right"></i></a>
-            </div>
-        </div>
-    </div>
-        <!-- End Collections 5 -->
+  <!-- Body content -->
+
+
+
+
+
+    <!-- End body content -->
+
+    
 
      <!-- Footer -->
      <div class="container mt-100px">
