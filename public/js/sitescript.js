@@ -14,4 +14,5 @@ function sendData() {
             $('#result').html(response);
         }
     });
+    
 }

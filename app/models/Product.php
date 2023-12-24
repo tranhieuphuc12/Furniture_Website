@@ -24,7 +24,7 @@ class Product extends Database{
         $sql = parent::$connection->prepare('UPDATE `products` SET `quantity`= `quantity` + ?  WHERE `id` = ?');
         $sql->bind_param('ii',$quantity, $productId);
         return ($sql->execute());
-    
+    }
     // Lấy tổng sản phẩm
     public function getAllProducts()
     {
@@ -33,5 +33,5 @@ class Product extends Database{
         return parent::select($sql);
     }
 }
-}
+
 
