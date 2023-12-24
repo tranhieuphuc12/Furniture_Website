@@ -5,7 +5,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Home - Office Furniture Store</title>
+    <title><?php  if (!empty($title)) {
+                echo $title;
+            } ?> - Office Furniture Store</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -65,15 +67,16 @@
         </div>
 
     </nav>
-    <hr class=" text-secondary">
+    <!-- <hr class=" text-secondary"> -->
     <!-- End Navbar -->
 
   <!-- Body content -->
 
-
-
-
-
+    <?php
+      if (!empty($slot)) {
+        echo $slot;
+    }
+    ?>
     <!-- End body content -->
 
     
@@ -116,6 +119,10 @@
             <p class="text-secondary text-center">Copyright © 2023 Office Furniture Store</p>
         </div>
      </div>
+
+     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+     
+    <script src="./public/js/sitescript.js"></script>
 </body>
 
 </html>
