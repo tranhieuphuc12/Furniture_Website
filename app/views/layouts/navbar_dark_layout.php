@@ -57,14 +57,11 @@
                                 class="fs-7 position-absolute top-70 start-80 translate-middle badge rounded-pill bg-light text-dark">
                                 0
 
-                            </span></button>
-                    <li class="nav-item"><a class="nav-link text-light fs-4" href="#"><i
-                                class="bi bi-person-fill"></i></a></li>
-
+                            </span></button>                    
                     </li>
                     <!--<%if (username == null) {%> -->
                     <li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle text-dark fs-4" href="#"
+						class="nav-link dropdown-toggle text-light fs-4" href="#"
 						role="button" data-bs-toggle="dropdown" aria-expanded="false"><i
 							class="bi bi-person-fill"></i></a>
 						<ul class="dropdown-menu">

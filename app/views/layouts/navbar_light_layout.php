@@ -95,7 +95,7 @@
 											data-bs-dismiss="modal" aria-label="Close"></button>
 									</div>
 									<div class="modal-body">
-										<form action="LoginServlet" method="post">
+										<form action="login_process.php" method="post">
 											<div class="mb-3">
 												<label class="form-label">Email Address Or Username</label>
 												<input type="text" class="form-control" id="username"
