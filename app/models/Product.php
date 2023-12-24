@@ -10,8 +10,8 @@ class Product extends Database{
         return parent::select($sql); 
     }
     
-    // Lấy tổng sản phẩm
-    public function getTotalProducts()
+    // Lấy tổng số lượng sản phẩm
+    public function getTotalQuantityProducts()
     {
         // 2. Tạo câu SQL
         $sql = parent::$connection->prepare("SELECT COUNT(*) AS total FROM `products`");
@@ -24,6 +24,14 @@ class Product extends Database{
         $sql = parent::$connection->prepare('UPDATE `products` SET `quantity`= `quantity` + ?  WHERE `id` = ?');
         $sql->bind_param('ii',$quantity, $productId);
         return ($sql->execute());
+    
+    // Lấy tổng sản phẩm
+    public function getAllProducts()
+    {
+        // 2. Tạo câu SQL
+        $sql = parent::$connection->prepare("SELECT * FROM `products`");
+        return parent::select($sql);
     }
+}
 }
 
