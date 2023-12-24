@@ -44,6 +44,8 @@ class Order extends Database
         (**) Nếu số lượng trong giỏ hàng bé hơn số lượng tồn kho của sản phẩm đó, ngược lại sản phẩm tự động xóa
     */
 
+    //Get total order with status 0
+    
 
    
 
@@ -54,7 +56,7 @@ class Order extends Database
         - Đi tìm orderId (done)
         - Lấy danh sách các productID (done)
         - Lấy danh sách số lượng giảm đi tương ứng với productID (done)
-        - Truy cập vào bảng Product giảm số lượng hàng tồn kho tương ứng với productID và quantity
+        - Truy cập vào bảng Product giảm số lượng hàng tồn kho tương ứng với productID và quantity(done)
         - Chuyển status của orderID là 1   (done)
         - Cập nhật cột hóa đơn tích lũy tại bảng account(done)
     */
