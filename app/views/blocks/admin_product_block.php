@@ -1,4 +1,12 @@
 
+<div>
+    <div class="management-order">
+        <a href="" class="btn btn-outline-info">Orders</a>
+    </div>
+    <div class="management-product">
+        <a href="" class="btn btn-info">Products</a>
+    </div>
+</div>
 	<div class="container mt-3">
 		<h2 class="fw-bold title_h6">Management</h2>
 		<button type="button"

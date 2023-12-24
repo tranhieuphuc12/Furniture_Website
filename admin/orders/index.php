@@ -4,6 +4,7 @@ require_once '../../config/database.php';
 $productModel = new Product();
 $products = $productModel->getAllProducts();
 
+//var_dump($products);
 $template = new Template();
 $slot = $template->render('admin_order_block', ['products'=>$products]);
 

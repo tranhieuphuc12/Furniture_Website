@@ -1,7 +1,7 @@
 // AJAX
 function sendData() {
     // Lấy giá trị từ ô nhập liệu
-    let productId = $('#dataInput').val();
+    let productId = $('#productId').val();
     let quantity = $('#quantity').val();
     let price = $('#price').val();
     // Gửi yêu cầu AJAX
@@ -14,4 +14,5 @@ function sendData() {
             $('#result').html(response);
         }
     });
+    console.log(productId);
 }

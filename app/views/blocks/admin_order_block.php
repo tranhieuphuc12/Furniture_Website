@@ -1,39 +1,33 @@
 <!-- Switch page -->
 <div>
-    <div class="management-order">
-        <a href="" class="btn btn-outline-info">Orders</a>
+    <div  class="management-order">
+        <a  href="" class="btn btn-info">Orders</a>
     </div>
-    <div class="management-product">
-        <a href="" class="btn btn-outline-info">Products</a>
+    <div  class="management-product">
+        <a  href="" class="btn btn-outline-info">Products</a>
     </div>
 </div>
 
 <div class="container mt-3">
-		<h2 class="fw-bold title_h6">Management</h2>
+		<h2 class="fw-bold title_h6">Orders</h2>
 		<button type="button"
 			class="nav-link text-dark shop_collections_btn btn btn-warning title_a"
 			data-bs-toggle="modal" data-bs-target="#modalAddProductForm">
-			<i class="bi bi-plus-lg"></i>Product
+
 		</button>
 
 
 		<table class="table table-sm table-hover">
 			<thead>
 				<tr>
+				<th scope="col"><h5
+							class="inline-block title_h6 text-secondary">#</h5></th>
 					<th scope="col"><h5
 							class="inline-block title_h6 text-secondary">ID</h5></th>
 					<th scope="col"><h5
-							class="inline-block title_h6 text-secondary">Product</h5></th>
+							class="inline-block title_h6 text-secondary">Customer</h5></th>
 					<th scope="col"><h5
-							class="inline-block title_h6 text-secondary">Price</h5></th>
-					<th scope="col"><h5
-							class="inline-block title_h6 text-secondary">Description</h5></th>
-					<th scope="col"><h5
-							class="inline-block title_h6 text-secondary">Origin</h5></th>
-					<th scope="col"><h5
-							class="inline-block title_h6 text-secondary">Category</h5></th>
-					<th scope="col"><h5
-							class="inline-block title_h6 text-secondary">Edit</h5></th>
+							class="inline-block title_h6 text-secondary">Action</h5></th>
 					<th scope="col"><h5
 							class="inline-block title_h6 text-secondary">
 							<i class="bi bi-trash3"></i>
@@ -41,11 +35,13 @@
 				</tr>
 			</thead>
 			<tbody>
-				
+				<?php 
+					$i = 1;
+				foreach ($products as $product) :?>
 				<tr>
+					<th scope="row"><?php echo $i++?></th>
 					<th scope="row"><h6
-							class="title_h6 text-secondary text-center">
-							<!-- <%=i+1%> -->
+							class="title_h6 text-secondary text-center"><?php echo $product['id']?>
 						</h6></th>
 					<td><img class="thumnail"
 						src="data:image/jpg;base64,<%=products.get(i).getImage()%>">
@@ -87,6 +83,8 @@
 						href="DeleteProductServlet?id=<%=products.get(i).getId()%>"><i
 							class="bi bi-x-circle"></i></a></td>
 				</tr>
+				<?php endforeach ?>
+				
 				<!-- <%
 				}
 				%> -->
