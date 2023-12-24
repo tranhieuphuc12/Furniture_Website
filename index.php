@@ -10,7 +10,7 @@ $perPage = 6;
 $template = new Template();
 $productModel = new Product();
 $products = $productModel-> getProductsByPage($page, $perPage);
-$total = $productModel-> getTotalProducts();
+$total = $productModel-> getTotalQuantityProducts();
  
 // Đổ dữ liệu vào blocks
 $slot = $template->render('product_list_block', ['products' => $products,

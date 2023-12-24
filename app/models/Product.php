@@ -9,11 +9,19 @@ class Product extends Database{
         return parent::select($sql); 
     }
     
-    // Lấy tổng sản phẩm
-    public function getTotalProducts()
+    // Lấy tổng số lượng sản phẩm
+    public function getTotalQuantityProducts()
     {
         // 2. Tạo câu SQL
         $sql = parent::$connection->prepare("SELECT COUNT(*) AS total FROM `products`");
         return parent::select($sql)[0]['total'];
+    }
+
+    // Lấy tổng sản phẩm
+    public function getAllProducts()
+    {
+        // 2. Tạo câu SQL
+        $sql = parent::$connection->prepare("SELECT * FROM `products`");
+        return parent::select($sql);
     }
 }
