@@ -20,17 +20,34 @@ class Order extends Database
     {
         $sql = parent::$connection->prepare('INSERT INTO `orders`( `username`) VALUES (?)');
         $sql->bind_param('s',$username);
-        return($sql->excute());
+        return($sql->execute());
     }
 
     //Add product into table order_product 
     public function storeProductIntoOrder($orderId,$productId,$price, $quatity)
     {
         $sql = parent::$connection->prepare('INSERT INTO `order_product`(`order_id`, `product_id`, `price`, `quantity`) VALUES (?,?,?,?)');
-        $sql->bind_param('iiii',$orderId,$productId,$price, $quatity);
-        return($sql->excute());
+        $sql->bind_param('iidi',$orderId,$productId,$price, $quatity);
+        return($sql->execute());
     }
 
+    //Kiem tra san pham co trong don hang
+    public function checkExist($orderId, $productId)
+    {
+        //Find order_id by username and status
+        $sql = parent::$connection->prepare('SELECT * FROM `order_product` WHERE `order_id` = ? AND `product_id` = ?');
+        $sql->bind_param('ii',$orderId,$productId);
+        return parent::select($sql);
+    }
+
+    //Neu da ton tai trong don hang thi update so luong
+    public function updateQuantityProductInOrder( $orderID, $productId, $quantity)
+    {
+        //Find order_id by username and status
+        $sql = parent::$connection->prepare('UPDATE `order_product` SET `quantity`=`quantity`+ ? WHERE `order_id` = ? AND `product_id`=?');
+        $sql->bind_param('iii',$quantity, $orderID,$productId);
+        return ($sql->execute());
+    }
     /* 
         Tại màn hình xem giỏ hàng:
         - Hiển thị Tên sản phẩm, hình ảnh, số lượng(**), giá 1 sản phẩm, tổng tiền của 1 sản phẩm
@@ -78,6 +95,13 @@ class Order extends Database
         return parent::select($sql);
     }
 
+    public function countQuantity( $orderID)
+    {
+        //Find order_id by username and status
+        $sql = parent::$connection->prepare('SELECT COUNT(`quantity`) FROM `order_product` WHERE `order_id` = ? ');
+        $sql->bind_param('i',$orderID);
+        return parent::select($sql);
+    }
     public function updateStatus( $orderID, $status)
     {
         //Find order_id by username and status
