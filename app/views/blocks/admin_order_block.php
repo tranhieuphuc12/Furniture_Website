@@ -19,7 +19,7 @@
 		<thead>
 			<tr>
 				<th scope="col">
-					<h5 class="inline-block title_h6 text-secondary text-center">N.o</h5>
+					<h5 class="inline-block title_h6 text-secondary text-center">#</h5>
 				</th>
 				<th scope="col">
 					<h5 class="inline-block title_h6 text-secondary text-center">ID</h5>
@@ -67,10 +67,9 @@
 
 					<td>
 						<h6 class="title_h6 text-secondary text-center d-flex justify-content-center">
-							<button type="button" class="btn-view px-2 py-2 nav-link text-dark shop_collections_btn btn btn-warning title_a" data-bs-toggle="modal" data-bs-target="#modalShowOrderForm"
-							data-bs-id="<?php echo $order['id']?>" value="<?php echo $order['order_id']?>">
+							<a href="show_products_order.php?orderId=<?php echo $order['order_id']?>&username=<?php echo $order['username']?>&status=<?php echo $order['id']?>" class="btn-view px-2 py-2 nav-link text-dark shop_collections_btn btn btn-warning title_a">
 								<i class="bi bi-card-list"></i> View
-							</button>
+							</a>
 						</h6>
 					</td>
 					<td>

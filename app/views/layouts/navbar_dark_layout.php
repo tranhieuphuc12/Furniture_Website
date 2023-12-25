@@ -16,7 +16,7 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="../asset/css/style.css">
 </head>
 
 <body>
@@ -220,7 +220,7 @@
 
      
      
-    <script src="./public/js/sitescript.js"></script>
+    <script src="../public/asset/js/sitescript.js"></script>
 </body>
 
 </html>
