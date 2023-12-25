@@ -222,7 +222,7 @@ ul{
     position: absolute;
     left: -50px;
     width: 30px;
-    height: 30px;
+    height: 100%;
     background-color: transparent;
     border-radius: 50%;
     display: flex;
@@ -248,6 +248,7 @@ ul{
     transition-duration: .5s;
     font-size: 1.04em;
     font-weight: 600;
+    margin-left: 30px;
   }
   
   .CartBtn:hover .IconContainer {
