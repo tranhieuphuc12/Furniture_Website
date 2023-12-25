@@ -1,5 +1,5 @@
 <?php
-require_once 'config/database.php';
+require_once '../config/database.php';
 $username = "unknown";
 if (isset($_SESSION["username"])){
     $username = $_SESSION['username'];

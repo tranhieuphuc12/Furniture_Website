@@ -32,6 +32,15 @@ class Product extends Database{
         $sql = parent::$connection->prepare("SELECT * FROM `products`");
         return parent::select($sql);
     }
+
+    //Lay chi tiet san pham
+    public function getProductByIdProduct($productId)
+    {
+        // 2. Tạo câu SQL
+        $sql = parent::$connection->prepare("SELECT * FROM `products` WHERE `id` = ?");
+        $sql->bind_param('i', $productId);
+        return parent::select($sql)[0];
+    }
 }
 
 

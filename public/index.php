@@ -1,5 +1,5 @@
 <?php
-require_once 'config/database.php';
+require_once '../config/database.php';
 
 $page = 1;
 if (isset($_GET['page'])) {

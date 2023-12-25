@@ -87,6 +87,14 @@ class Order extends Database
         return parent::select($sql);
     }
 
+    public function getProductByUsernameStatus( $username, $status)
+    {
+        //Find order_id by username and status
+        $sql = parent::$connection->prepare('SELECT products.*
+        FROM products INNER JOIN order_product On products.id = order_product.product_id INNER JOIN orders ON order_product.order_id = orders.order_id WHERE orders.username = ? AND status = ? ');
+        $sql->bind_param('si',$username, $status);
+        return parent::select($sql);
+    }
     public function getQuantity( $orderID)
     {
         //Find order_id by username and status

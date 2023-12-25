@@ -6,7 +6,7 @@ class Favorite extends Database
     public function checkExist($username, $productId)
     {
         $sql = parent::$connection->prepare('SELECT * FROM `favorite_product` WHERE username = ? AND product_id = ?');
-        $sql->blind_param('si',$username,$productId);
+        $sql->bind_param('si',$username,$productId);
         return parent::select($sql);
     }
 
@@ -14,16 +14,16 @@ class Favorite extends Database
     public function getAllProductId($username)
     {
         $sql = parent::$connection->prepare('SELECT * FROM `favorite_product` WHERE username = ?');
-        $sql->blind_param('s',$username);
+        $sql->bind_param('s',$username);
         return parent::select($sql);
     }
 
     //Them yeu thich
     public function storeFavorite($username, $productId)
     {
-        $sql = parent::$connection->prepare('INSERT INTO `favorite_product`(`username`, `product_id`) VALUES ?,?');
+        $sql = parent::$connection->prepare('INSERT INTO `favorite_product`(`username`, `product_id`) VALUES (?,?)');
         $sql->bind_param('si',$username,$productId);
-        return($sql->excute());
+        return($sql->execute());
     }
 
     //Xoa yeu thich
@@ -31,6 +31,6 @@ class Favorite extends Database
     {
         $sql = parent::$connection->prepare('DELETE FROM `favorite_product` WHERE `username` = ? AND product_id =?');
         $sql->bind_param('si',$username,$productId);
-        return($sql->excute());
+        return($sql->execute());
     }
 }

@@ -173,7 +173,7 @@
                               </span>
                               <p class="text mb-0">Add to Cart</p>
                           </a>
-                        <div onclick=""><i class="bi bi-heart"></i></div>
+                        <a href="favorite_product.php?productId=<?php echo $product['id']?>"><i class="bi bi-heart"></i></a>
                           <!-- End add to cart -->
                       </div>
                   </div>

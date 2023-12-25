@@ -17,7 +17,7 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="../asset/css/style.css">
 </head>
 
 <body>
@@ -52,12 +52,12 @@
 
                 <ul class="navbar-nav me-0 ms-1 mb-lg-0">
                     <li class="nav-item">
-                        <button type="button" class="me-auto nav-link text-light fs-4 position-relative" href="#"><i
+                        <a type="button" class="me-auto nav-link text-light fs-4 position-relative" href="show_cart.php"><i
                                 class="bi bi-basket2-fill"></i> <span id="result"
                                 class="fs-7 position-absolute top-70 start-80 translate-middle badge rounded-pill bg-light text-dark">
                                 0
 
-                            </span></button>
+                            </span></a>
                     <li class="nav-item"><a class="nav-link text-light fs-4" href="#"><i
                                 class="bi bi-person-fill"></i></a></li>
 
