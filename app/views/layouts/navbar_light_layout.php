@@ -68,7 +68,7 @@
                                 0
 							</span>
 						</button> <!--<%if (username == null) {%> -->
-					
+							<?php if(!isset($_SESSION['username'])){?>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle text-dark fs-4" href="#"
 						role="button" data-bs-toggle="dropdown" aria-expanded="false"><i
@@ -140,6 +140,11 @@
 													type="password" class="form-control" id="password"
 													name="password" placeholder="Password" />
 											</div>
+											<div class="mb-3">
+                                                <label class="form-label">Phone Number</label>
+                                                <input type="text" class="form-control" id="phone_number" name="phone_number"
+                                                    placeholder="Phone Number"/>
+                                            </div>
 											<div class="mb-3 form-check">
 												<input type="checkbox" class="form-check-input" id="signup" />
 												<label class="form-check-label" for="signup">By
@@ -154,19 +159,21 @@
 									</div>
 								</div>
 							</div>
-						</div></li>
-					<!-- <%
-					} else {
-					%>
-					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle text-dark fs-5" href="#"
-						role="button" data-bs-toggle="dropdown" aria-expanded="false"><%=username%></a>
+							<?php }else{?>
+                  
+                    <li class="nav-item dropdown"><a
+                        class="nav-link dropdown-toggle text-light fs-5" href="#"
+                        role="button" data-bs-toggle="dropdown" aria-expanded="false"><?php echo $_SESSION['username']?></a>
 
-						<ul class="dropdown-menu">
-							<li><a type="button" href="SignOutServlet"
-								class="nav-link text-dark"> Sign Out</a></li>
-							<li><hr class="dropdown-divider"></li>
-						</ul> <%}%> -->
+                        <ul class="dropdown-menu">
+                        <li><a type="button" href="profile.php"
+                                class="nav-link text-dark">Profile</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                            <li><a type="button" href="sign_out_process.php"
+                                class="nav-link text-dark"> Sign Out</a></li>
+                            
+                            
+                        </ul> <?php }?> 
 				</ul>
 			</div>
 		</div>
