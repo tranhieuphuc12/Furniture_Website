@@ -8,19 +8,20 @@ ul{
       margin-bottom: 0px;
   }
 
-  .navbar {
+  .navbar{
       padding: 20px;
       border-bottom-width: 1px;
       border-bottom-style: solid;
       border-bottom-color: rgba(255, 255, 255, 0.08);
-      background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)), url('https://websitedemos.net/office-furniture-store-04/wp-content/uploads/sites/913/2021/07/wfh-furniture-store-hero-img-bg.jpg');
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-
       /* Make sure to give this element a specified height or it won't show up if it has no content */
       /* This will make it full height of the viewport */
+  }
+  .navbar-img{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)), url('https://websitedemos.net/office-furniture-store-04/wp-content/uploads/sites/913/2021/07/wfh-furniture-store-hero-img-bg.jpg'); 
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
   }
 
   body {
@@ -207,7 +208,7 @@ ul{
     height: 40px;
     border-radius: 12px;
     border: none;
-    background-color: rgb(255, 208, 0);
+    background-color: rgba(251, 216, 73, 0.9);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -216,6 +217,9 @@ ul{
     overflow: hidden;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.103);
     position: relative;
+  }
+  .CartBtn:hover{
+    background-color: #ffca2c;
   }
   
   .IconContainer {
@@ -266,7 +270,22 @@ ul{
     transform: scale(0.95);
     transition-duration: .5s;
   }
-
+  .btn-yellow{
+    border: none;
+    background-color: rgba(251, 216, 73, 0.9);
+  }
+  .btn-yellow:hover{
+    background-color: #ffca2c;
+  }
+  .btn-enable{
+    background-color: #afafaf;
+    padding: 10px 20px;
+    border: none;
+  }
+  .btn-enable:hover{
+    background-color: #afafaf;
+    cursor: no-drop;
+  }
   /* Management */
   /* Orders */
 

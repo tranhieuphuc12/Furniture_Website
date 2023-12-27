@@ -16,14 +16,14 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="../asset/css/style.css">
 </head>
 
 <body>
 
     <!-- Nav bar -->
     <!-- Nav bar -->
-	<nav class="navbar navbar-expand-lg bg-white">
+	<nav class="navbar navbar-expand-lg bg-white ">
 		<div class="container">
 			<a class="navbar-brand" href="HomeServlet"> <img
 				src="https://websitedemos.net/office-furniture-store-04/wp-content/uploads/sites/913/2021/07/site-logo-dark.svg">

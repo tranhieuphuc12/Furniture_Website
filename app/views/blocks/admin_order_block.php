@@ -1,25 +1,22 @@
 <!-- Switch page -->
 <div>
-	<div class="management-order">
-		<a href="" class="btn btn-info">Orders</a>
+	<div class="management-order ">
+		<a href="index.php" class="btn btn-warning shop_collections_btn">Orders</a>
 	</div>
 	<div class="management-product">
-		<a href="" class="btn btn-outline-info">Products</a>
+		<a href="product_management.php" class="btn btn-outline-warning">Products</a>
 	</div>
 </div>
 
 <div class="container mt-3">
 	<h2 class="fw-bold title_h6">Orders</h2>
-	<button type="button" class="nav-link text-dark shop_collections_btn btn btn-warning title_a" data-bs-toggle="modal" data-bs-target="#modalAddProductForm">
-		<a>asdsads</a>
-	</button>
 
 
 	<table class="table table-sm table-hover">
 		<thead>
 			<tr>
 				<th scope="col">
-					<h5 class="inline-block title_h6 text-secondary text-center">#</h5>
+					<h5 class="inline-block text-secondary text-center">#</h5>
 				</th>
 				<th scope="col">
 					<h5 class="inline-block title_h6 text-secondary text-center">ID</h5>
@@ -46,105 +43,44 @@
 			foreach ($orders as $order) : ?>
 				<tr>
 					<th scope="row">
-						<h6 class="py-2 title_h6 text-secondary text-center"><?php echo $i++ ?>
+						<h6 class="py-2 mt-2 text-secondary text-center"><?php echo $i++ ?>
 						</h6>
 					</th>
 					<th scope="row">
-						<h6 class="py-2 title_h6 text-secondary text-center"><?php echo $order['order_id'] ?>
+						<h6 class="py-2 mt-2 text-secondary text-center"><?php echo $order['order_id'] ?>
 						</h6>
 					</th>
 
 					<td>
-						<h6 class=" py-2 title_h6 text-secondary text-center">
+						<h6 class=" py-2 mt-2 text-secondary text-center">
 							<?php echo $order['username'] ?>
 						</h6>
 					</td>
 					<td>
-						<h6 class="py-2 title_h6 <?php echo ($order['status'] == 1) ? 'text-danger' : 'text-secondary'; ?> text-center">
+						<h6 class="py-2 mt-2 <?php echo ($order['status'] == 1) ? 'text-danger' : 'text-secondary'; ?> text-center">
 							<?php echo $order['status_name'] ?>
 						</h6>
 					</td>
 
 					<td>
-						<h6 class="title_h6 text-secondary text-center d-flex justify-content-center">
+						<h6 class="py-2 my-0 text-secondary text-center d-flex justify-content-center">
 							<a href="show_products_order.php?orderId=<?php echo $order['order_id']?>&username=<?php echo $order['username']?>&status=<?php echo $order['id']?>" class="btn-view px-2 py-2 nav-link text-dark shop_collections_btn btn btn-warning title_a">
 								<i class="bi bi-card-list"></i> View
 							</a>
 						</h6>
 					</td>
 					<td>
-						<h6 class="title_h6 text-secondary text-center d-flex justify-content-center">
-							<a type="button" class="mt-1" onclick="javascript:return confirm('You want to delete this product ?')" href="DeleteProductServlet?id=<%=products.get(i).getId()%>"><i class="bi bi-x-circle text-danger"></i></a>
+						<h6 class="py-2 my-0 text-secondary text-center d-flex justify-content-center">
+							<a type="button" class="mt-1" onclick="javascript:return confirm('You want to delete this product ?')" href=""><i class="bi bi-x-circle text-danger"></i></a>
 						</h6>
 					</td>
 
 				</tr>
 			<?php endforeach ?>
-
-			<!-- <%
-				}
-				%> -->
 		</tbody>
 	</table>
 </div>
 
-<!-- Modal Show Order Form  -->
-<div class="modal fade" id="modalShowOrderForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title text-secondary" id="exampleModalLabel">#<?php echo $order['order_id']?> - <?php echo $order['username'] ?></h5>
-								<h3 class="mx-auto" >ORDER</h3>
-								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-								
-							</div>
-							<div class="modal-body">
-								<form action="#" method="post" enctype='multipart/form-data'>
-									<table>
-									<thead>
-										<tr>
-										<th scope="col"><p class="inline-block title_h6 text-secondary">#</p></th>
-										<th scope="col"><p class="inline-block title_h6 text-secondary">Product</p></th>
-										<th scope="col"><p class="inline-block title_h6 text-secondary">Quantity</p></th>
-										<th scope="col"><p class="inline-block title_h6 text-secondary">Unit price</p></th>
-										<th scope="col"><p class="inline-block title_h6 text-secondary">Total money</p></th>
-										</tr>
-									</thead>
-									<tbody class="form-table-body">
-										<td>Stt</td>
-										<td>Name</td>
-										<td>x3</td>
-										<td>20</td>
-										<td>60</td>
-									</tbody>
-
-									</table>
-									
-									<div class="mb-3">
-
-										<label for="category_choose">Category</label> <select name="category_choose" class="form-select" aria-label="Default select example">
-
-											<!-- <%
-								for (int i = 0; i < categories.size(); i++) {
-								%> -->
-											<option value="<%=categories.get(i).getId()%>">
-												<!-- <%=categories.get(i).getName()%> -->
-											</option>
-											<!-- <%
-								}
-								%> -->
-										</select>
-
-									</div>
-									<div class="modal-footer d-block">
-
-										<button type="submit" class="btn btn-warning float-end">Submit</button>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
 
 <!-- Modal Add Product Form  -->
 <div class="modal fade" id="modalAddProductForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

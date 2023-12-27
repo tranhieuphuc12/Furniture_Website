@@ -22,7 +22,7 @@
 <body>
 
     <!-- Nav bar -->
-    <nav class="navbar navbar-expand-lg bg-green">
+    <nav class="navbar navbar-expand-lg bg-green navbar-img">
         <div class="container">
             <a class="navbar-brand" href="#"> <img
                     src="https://websitedemos.net/office-furniture-store-04/wp-content/uploads/sites/913/2021/07/site-logo-light.svg">
@@ -220,7 +220,7 @@
 
      
      
-    <script src="../public/asset/js/sitescript.js"></script>
+    <script src="../asset/js/sitescript.js"></script>
 </body>
 
 </html>

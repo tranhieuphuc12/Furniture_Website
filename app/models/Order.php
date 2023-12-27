@@ -107,7 +107,7 @@ class Order extends Database
         //Find order_id by username and status
         $sql = parent::$connection->prepare('UPDATE `orders` SET `status`=? WHERE `order_id` = ?');
         $sql->bind_param('ii',$status, $orderID);
-        return parent::select($sql);
+        return $sql->execute();
     }
 
     // Get all order
@@ -146,4 +146,6 @@ class Order extends Database
         $sql->bind_param('i',$status);
         return parent::select($sql);
     }
+
+ 
 }
