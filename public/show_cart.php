@@ -7,7 +7,7 @@ if (isset($_SESSION['username'])) {
 
 $template = new Template();
 $productOrder = new Order();
-$products = $productOrder->getProductByUsernameStatus($username,0);
+$products = $productOrder->getProductToCart($username,0);
 
 $slot = $template->render('cart_block',['products'=>$products]);
 
