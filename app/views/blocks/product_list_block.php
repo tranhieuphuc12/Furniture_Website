@@ -188,44 +188,52 @@
                         </h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
                             the card's content.</p>
-                        <?php
-                        if ($product['quantity'] > 0) {
-                            ?>
-                            <a href="add_to_cart.php?productId=<?php echo $product['id'] ?>&quantity=1&price=<?php echo $product['price'] ?>"
-                                class="CartBtn d-inline-block text-decoration-none">
-                                <span class="IconContainer">
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"
-                                        fill="rgb(17, 17, 17)" class="cart">
-                                        <path
-                                            d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z">
-                                        </path>
-                                    </svg>
-                                </span>
-                                <p class="text mb-0">Add to Cart</p>
-                            </a>
-                            <?php
-                        } else { ?>
-                            <a class="btn btn-secondary d-inline-block text-decoration-none">
-                                <p class="text mb-0">Sold out</p>
-                            </a>
 
-                            <?php
-                        }
-                        ?>
+                        <div class="row">
+                            <div class="col-8">
+                                <?php
+                                if ($product['quantity'] > 0) {
+                                    ?>
+                                    <a href="add_to_cart.php?productId=<?php echo $product['id'] ?>&quantity=1&price=<?php echo $product['price'] ?>"
+                                        class="CartBtn d-inline-block text-decoration-none">
+                                        <span class="IconContainer">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"
+                                                fill="rgb(17, 17, 17)" class="cart">
+                                                <path
+                                                    d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z">
+                                                </path>
+                                            </svg>
+                                        </span>
+                                        <p class="text mb-0">Add to Cart</p>
+                                    </a>
+                                    <?php
+                                } else { ?>
+                                    <a class="btn btn-secondary d-inline-block text-decoration-none">
+                                        <p class="text mb-0">Sold out</p>
+                                    </a>
 
-                        <a href="favorite_product.php?productId=<?php echo $product['id'] ?>">
+                                    <?php
+                                }
+                                ?>
+                            </div>
+                            <div class="col-4">
+                                <a href="favorite_product.php?productId=<?php echo $product['id'] ?>">
 
-                            <i class="bi 
-                        <?php
-                        if (in_array($product['id'], $productsFav)) {
-                            print('bi-heart-fill text-danger');
+                                    <i class="bi fs-3 <?php if (in_array($product['id'], $productsFav)) {
+                                        print('bi-heart-fill text-danger');
 
-                        } else {
-                            print('bi-heart');
-                        }
+                                    } else {
+                                        print('bi-heart');
+                                    }
 
-                        ?>
-                        "></i></a>
+                                    ?>
+"></i></a>
+                            </div>
+                        </div>
+
+
+
+
                         <!-- End add to cart -->
                     </div>
                 </div>
@@ -332,30 +340,55 @@
 <!-- End Collections 4 -->
 <!-- Collections 5 -->
 <div class="container mt-100px">
-    <h2 class="text-center fw-bold fs-1">Featured collection</h2>
+    <h2 class="text-center fw-bold fs-1">WISH LIST</h2>
     <p class="text-secondary text-center">Duis enim fermentum id et molestie arcu sagittis, sapien turpis praesent
         consectetur <br> dolor lobortis posuere adipiscing</p>
 </div>
 <div class="row">
-    <div class="col-4">
-        <img src="../asset/img/thumbnails/img_4.png">
-        <div class="text-center mt-3">
-            <a href="#" class="fs-5 fw-bold text-decoration-none text-black text-center">Chairs</a>
+    <!-- carousel wish list -->
+    <div id="carouselExampleCaptions" class="carousel slide">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1" style="background-color: black;"></button>
+            <?php
+            $i = 1;
+            foreach ($listFav as $productFav){ if($i!=sizeof($listFav)){?>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<?php echo $i++ ?>"
+                    aria-label="Slide <?php echo $i ?>" style="background-color: black;"></button>
+                <?php
+                }
+            } ?>
         </div>
-    </div>
-    <div class="col-4">
-        <img src="../asset/img/thumbnails/img_5.png">
-        <div class="text-center mt-3">
-            <a href="#" class="fs-5 fw-bold text-decoration-none text-black text-center">Cabinets</a>
+        <div class="carousel-inner">
+            <?php
+            $i = 0;
+            foreach ($listFav as $productFav): ?>
+                <div class="carousel-item <?php echo(($i++==0)?'active':'' )?>">
+                    <img src="../asset/img/thumbnails/img_4.png" class="d-block img-fluid" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 class="text-black">
+                            <?php echo $productFav['name'] ?>
+                        </h5>
+                        <p class="text-black">Some representative placeholder content for the first slide.</p>
+                    </div>
+                </div>
+                <?php
+            endforeach ?>
         </div>
-    </div>
-    <div class="col-4">
-        <img src="../asset/img/thumbnails/img_6.png">
-        <div class="text-center mt-3">
-            <a href="#" class="fs-5 fw-bold text-decoration-none text-black text-center">Lamps</a>
-        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: black;"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon " aria-hidden="true" style="background-color: black;"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
 </div>
+
+
 <div class="myBackgroundOverlay mt-100px">
     <div class="container ">
         <h6 class="title_h6 h6 text-light text-center pt-100px">

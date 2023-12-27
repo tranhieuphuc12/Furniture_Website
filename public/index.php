@@ -16,6 +16,9 @@ $productModel = new Product();
 $products = $productModel-> getProductsByPage($page, $perPage);
 $total = $productModel-> getTotalQuantityProducts();
 $listIdFav = $productModel->getProductsFav($username);
+
+$favModel = new Favorite();
+$listFav = $favModel->getAllProductFav($username);
 $productsFav = [];
 foreach ($listIdFav as $id) {
     array_push($productsFav,$id['id']);
@@ -25,7 +28,8 @@ $slot = $template->render('product_list_block', ['products' => $products,
                                                 'perPage' => $perPage,
                                                 'total' => $total,
                                                 'page' =>$page,
-                                                'productsFav'=>$productsFav
+                                                'productsFav'=>$productsFav,
+                                                'listFav' => $listFav
                                             ]);
 
 // Chuẩn bị dữ liệu gồm các blocks có data đã được đổ vào block

@@ -11,9 +11,9 @@ class Favorite extends Database
     }
 
     //Lay tat ca san pham yeu thic cua username
-    public function getAllProductId($username)
+    public function getAllProductFav($username)
     {
-        $sql = parent::$connection->prepare('SELECT * FROM `favorite_product` WHERE username = ?');
+        $sql = parent::$connection->prepare('SELECT * FROM `favorite_product` INNER JOIN products ON products.id = product_id WHERE username = ?');
         $sql->bind_param('s',$username);
         return parent::select($sql);
     }
