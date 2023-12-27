@@ -1,14 +1,16 @@
 <?php
-require_once '../../config/database.php';
+require_once '../config/database.php';
 
-$productModel = new Product();
-$products = $productModel->getAllProducts();
-
+$orderModel = new Order();
+$products = $orderModel->getAllOrderByStatusForOrderManagement(0);
+$orders = $orderModel->getAllOrdersAsc(0);
+// $products = $orderModel->getProductsByOrderId(1);
 $template = new Template();
-$slot = $template->render('admin_order_block', ['products'=>$products]);
+$slot = $template->render('admin_order_block', ['orders'=>$orders,
+                                                'product'=>$products]);
 
 $data = [
-    'title'=>'Management Order',
+    'title'=>'Management Orders',
     'slot' =>$slot
 ];
 $template->view('navbar_light_layout', $data);

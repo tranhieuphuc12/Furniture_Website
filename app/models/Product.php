@@ -33,6 +33,15 @@ class Product extends Database{
         return parent::select($sql);
     }
 
+    // Lấy cac san pham duoc yeu thich
+    public function getProductsFav($username)
+    {
+        // 2. Tạo câu SQL
+        $sql = parent::$connection->prepare("SELECT id FROM `products` INNER JOIN favorite_product on products.id = favorite_product.product_id WHERE favorite_product.username = ?");
+        $sql->bind_param('s',$username);
+        return parent::select($sql);
+    }
+
     //Lay chi tiet san pham
     public function getProductByIdProduct($productId)
     {

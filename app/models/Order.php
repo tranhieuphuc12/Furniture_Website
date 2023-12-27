@@ -132,7 +132,45 @@ class Order extends Database
         //Find order_id by username and status
         $sql = parent::$connection->prepare('UPDATE `orders` SET `status`=? WHERE `order_id` = ?');
         $sql->bind_param('ii',$status, $orderID);
-        return ($sql->execute());
+        return $sql->execute();
     }
 
+    // Get all order
+    public function getAllOrdersAsc($status)
+    {
+        //Find order_id by username and status
+        $sql = parent::$connection->prepare('SELECT * 
+                                            FROM `orders` INNER JOIN `status`
+                                            ON orders.status = status.id
+                                            WHERE `status`> ? ORDER BY `status`ASC');
+        $sql->bind_param('i',$status);
+        return parent::select($sql);
+    }
+
+    public function getProductsByOrderId( $orderID)
+    {
+        //Find order_id by username and status
+        $sql = parent::$connection->prepare('SELECT order_product.*, products.name, products.image
+                                            FROM `order_product` INNER JOIN products 
+                                            ON order_product.product_id = products.id 
+                                            WHERE `order_id` = ? ');
+        $sql->bind_param('i',$orderID);
+        return parent::select($sql);
+    }
+
+    public function getAllOrderByStatusForOrderManagement($status)
+    {
+        //Find order_id by username and status
+        $sql = parent::$connection->prepare('SELECT order_product.order_id , orders.username, members.phone, status.id, status.status_name, products.name, order_product.price, order_product.quantity, products.image 
+                                            FROM `orders` INNER JOIN `status`ON orders.status = status.id
+                                            INNER JOIN `order_product`ON orders.order_id = order_product.order_id
+                                            INNER JOIN `products` ON products.id = order_product.product_id
+                                            INNER JOIN `members` ON members.username LIKE orders.username  
+                                            WHERE status.id > ?
+                                            ORDER BY `status`.`id` ASC');
+        $sql->bind_param('i',$status);
+        return parent::select($sql);
+    }
+
+ 
 }

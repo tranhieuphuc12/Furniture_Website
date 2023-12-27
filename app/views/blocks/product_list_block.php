@@ -21,7 +21,7 @@
     <div class="row ">
         <div class="col-md-7 col-12">
             <div class="img_text">
-                <img src="public/img/thumbnails/img_1.jpeg" class="img-fluid ">
+                <img src="../asset/img/thumbnails/img_1.jpeg" class="img-fluid ">
                 <a href="#" class="bottom-left fs-3">Wooden Desk &nbsp <i class="bi bi-arrow-right "></i></a>
 
             </div>
@@ -30,14 +30,14 @@
             <div class="d-flex flex-column align-items-center bd-highlight mb-3">
                 <div class="p-1 bd-highlight">
                     <div class="img_text">
-                        <img src="public/img/thumbnails/img_2.jpeg" class="img-fluid ">
+                        <img src="../asset/img/thumbnails/img_2.jpeg" class="img-fluid ">
                         <a href="#" class="bottom-left-2 fs-3">Chairs &nbsp <i class="bi bi-arrow-right "></i></a>
 
                     </div>
                 </div>
                 <div class="p-1 bd-highlight mt-5">
                     <div class="img_text">
-                        <img src="public/img/thumbnails/img_3.jpeg" class="img-fluid ">
+                        <img src="../asset/img/thumbnails/img_3.jpeg" class="img-fluid ">
                         <a href="#" class="bottom-left-2 fs-3">Laptop Stands &nbsp <i
                                 class="bi bi-arrow-right "></i></a>
 
@@ -205,7 +205,7 @@
                             </a>
                             <?php
                         } else { ?>
-                            <a  class="btn btn-secondary d-inline-block text-decoration-none">
+                            <a class="btn btn-secondary d-inline-block text-decoration-none">
                                 <p class="text mb-0">Sold out</p>
                             </a>
 
@@ -213,8 +213,19 @@
                         }
                         ?>
 
-                        <a href="favorite_product.php?productId=<?php echo $product['id'] ?>"><i
-                                class="bi bi-heart"></i></a>
+                        <a href="favorite_product.php?productId=<?php echo $product['id'] ?>">
+
+                            <i class="bi 
+                        <?php
+                        if (in_array($product['id'], $productsFav)) {
+                            print('bi-heart-fill text-danger');
+
+                        } else {
+                            print('bi-heart');
+                        }
+
+                        ?>
+                        "></i></a>
                         <!-- End add to cart -->
                     </div>
                 </div>
@@ -327,19 +338,19 @@
 </div>
 <div class="row">
     <div class="col-4">
-        <img src="public/img/thumbnails/img_4.png">
+        <img src="../asset/img/thumbnails/img_4.png">
         <div class="text-center mt-3">
             <a href="#" class="fs-5 fw-bold text-decoration-none text-black text-center">Chairs</a>
         </div>
     </div>
     <div class="col-4">
-        <img src="public/img/thumbnails/img_5.png">
+        <img src="../asset/img/thumbnails/img_5.png">
         <div class="text-center mt-3">
             <a href="#" class="fs-5 fw-bold text-decoration-none text-black text-center">Cabinets</a>
         </div>
     </div>
     <div class="col-4">
-        <img src="public/img/thumbnails/img_6.png">
+        <img src="../asset/img/thumbnails/img_6.png">
         <div class="text-center mt-3">
             <a href="#" class="fs-5 fw-bold text-decoration-none text-black text-center">Lamps</a>
         </div>
