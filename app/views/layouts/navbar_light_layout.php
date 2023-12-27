@@ -39,6 +39,9 @@
 			
 			overflow-y: auto;
 		}
+		.change-btn:hover{
+			background-color: #fbd849;
+		}
 	</style>
 </head>
 
@@ -48,7 +51,7 @@
 	<!-- Nav bar -->
 	<nav class="navbar navbar-expand-lg bg-white">
 		<div class="container">
-			<a class="navbar-brand" href="HomeServlet"> <img
+			<a class="navbar-brand" href="index.php"> <img
 					src="https://websitedemos.net/office-furniture-store-04/wp-content/uploads/sites/913/2021/07/site-logo-dark.svg">
 			</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -179,13 +182,13 @@
 							</div>
 							<?php } else { ?>
 
-						<li class="nav-item dropdown"><a class="nav-link dropdown-toggle text-light fs-5" href="#"
+						<li class="nav-item dropdown"><a class="nav-link dropdown-toggle text-dark fs-5" href="#"
 								role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								<?php echo $_SESSION['username'] ?>
 							</a>
 
 							<ul class="dropdown-menu">
-								<li><a type="button" href="profile.php" class="nav-link text-dark">Profile</a></li>
+								<li><a type="button" href="profile_process.php" class="nav-link text-dark">Profile</a></li>
 								<li>
 									<hr class="dropdown-divider">
 								</li>
@@ -218,8 +221,8 @@
 	<div class="container mt-100px">
 		<div class="row">
 			<div class="col-3">
-				<img src="https://websitedemos.net/office-furniture-store-04/wp-content/uploads/sites/913/2021/07/site-logo-light.svg"
-					class="bg-warning text-light" width="200" height="33">
+				<img src="https://websitedemos.net/office-furniture-store-04/wp-content/uploads/sites/913/2021/07/site-logo-dark.svg"
+					class="text-light" width="200" height="33">
 			</div>
 			<div class="col-3">
 				<h2 class="fs-5  mb-3">About Us</h2>

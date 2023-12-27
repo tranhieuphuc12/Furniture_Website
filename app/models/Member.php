@@ -22,25 +22,32 @@ class Member extends Database{
         
     }
 
-    function storeToken($token,$username) {
-        $sql = parent::$connection->prepare("UPDATE `members` SET `token`= ? WHERE `username` like ?");
-        $sql->bind_param('ss',$token,$username);
-        return $sql->execute();
-    }
+    // function storeToken($token,$username) {
+    //     $sql = parent::$connection->prepare("UPDATE `members` SET `token`= ? WHERE `username` like ?");
+    //     $sql->bind_param('ss',$token,$username);
+    //     return $sql->execute();
+    // }
 
-    function getToken($username){
-        $sql =parent::$connection->prepare('SELECT `token` FROM `members` WHERE `username` like ?');
-        $sql->bind_param('s',$username);
-        $token = parent::select($sql)[0]['token'];
-        return $token;
-    }
+    // function getToken($username){
+    //     $sql =parent::$connection->prepare('SELECT `token` FROM `members` WHERE `username` like ?');
+    //     $sql->bind_param('s',$username);
+    //     $token = parent::select($sql)[0]['token'];
+    //     return $token;
+    // }
 
-    function uploadFile($fileContent,$username) {
+    function updateAvatarImage($fileContent,$username) {
         $sql =parent::$connection->prepare("UPDATE `members` SET `avatar`= ? WHERE `username`like ?");
-        $sql->bind_param('bs',$fileContent,$username);
-        
-        
+        $sql->bind_param('ss',$fileContent,$username);                
         return $sql->execute();
+    }
+    function getAvatarImage($username) {
+        $sql =parent::$connection->prepare("SELECT `avatar` FROM `members` WHERE `username` like ?");
+        $sql->bind_param('s',$username);    
+        $image = parent::select($sql)[0]['avatar'];   
+        if ($image != null) {
+            return $image;
+        }         
+        
     }
 
     function getMember($username){
@@ -52,6 +59,18 @@ class Member extends Database{
     function update($username,$phoneNumber,$gender){
         $sql = parent::$connection->prepare('UPDATE `members` SET `phone_number`= ? ,`gender`= ?  WHERE `username` like ?');
         $sql ->bind_param('sss',$phoneNumber,$gender,$username);
+        return $sql->execute();
+    }
+    function getPassword($username){
+        $sql = parent::$connection->prepare('SELECT `password` FROM `members` WHERE `username`LIKE ? ');
+        $sql ->bind_param('s',$username);
+        $password = parent::select($sql)[0]['password'];
+        return $password;
+        
+    }
+    function updatePassword($password,$username) {
+        $sql = parent::$connection->prepare('UPDATE `members` SET `password`= ?  WHERE `username` like ?');
+        $sql ->bind_param('ss',$password,$username);
         return $sql->execute();
     }
 }

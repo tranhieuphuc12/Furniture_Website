@@ -171,7 +171,7 @@
 
                             <ul class="dropdown-menu">
                                 <li>
-                                    <form action="profile.php" method="post">
+                                    <form action="profile_process.php" method="post">
                                         <input type="hidden" name="username" value="<?php echo $_SESSION['username'] ?>">
                                         <button type="submit" class="nav-link text-dark">Profile</button>
                                     </form>
