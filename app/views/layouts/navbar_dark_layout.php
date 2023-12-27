@@ -1,5 +1,6 @@
-
+<!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>
@@ -17,10 +18,15 @@
         crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="public/css/style.css">
+    <style>
+        .form-check {
+            display: inline-block;
+        }
+    </style>
 </head>
 
 <body>
-   
+
     <!-- Nav bar -->
     <nav class="navbar navbar-expand-lg bg-green">
         <div class="container">
@@ -59,119 +65,124 @@
                             </span></button>
                     </li>
                     <!--<%if (username == null) {%> -->
-                        <?php if(!isset($_SESSION['username'])){?>
-                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle text-light fs-4" href="#"
-                            role="button" data-bs-toggle="dropdown" aria-expanded="false"><i
-                                class="bi bi-person-fill"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><button type="button" class="nav-link text-dark" data-bs-toggle="modal"
-                                    data-bs-target="#modalLoginForm">
-                                    Login</button></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><button type="button" class="nav-link text-dark" data-bs-toggle="modal"
-                                    data-bs-target="#modalSignUpForm">
-                                    Sign Up</button></li>
+                    <?php if (!isset($_SESSION['username'])) { ?>
+                        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle text-light fs-4" href="#"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false"><i
+                                    class="bi bi-person-fill"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><button type="button" class="nav-link text-dark" data-bs-toggle="modal"
+                                        data-bs-target="#modalLoginForm">
+                                        Login</button></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><button type="button" class="nav-link text-dark" data-bs-toggle="modal"
+                                        data-bs-target="#modalSignUpForm">
+                                        Sign Up</button></li>
 
-                        </ul> <!-- Modal Login-->
-                        <div class="modal fade" id="modalLoginForm" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
+                            </ul> <!-- Modal Login-->
+                            <div class="modal fade" id="modalLoginForm" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
 
-                                        <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Login</h5>
 
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="login_process.php" method="post">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Email Address Or Username</label>
+                                                    <input required type="text" class="form-control" id="username"
+                                                        name="username" placeholder="Username" />
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Password</label> <input required
+                                                        type="password" class="form-control" id="password" name="password"
+                                                        placeholder="Password" />
+                                                </div>
+                                                <div class="modal-footer d-block">
+                                                    <button type="submit"
+                                                        class="btn btn-warning float-end submit-btn">Submit</button>
+                                                </div>
+                                            </form>
+                                        </div>
                                     </div>
-                                    <div class="modal-body">
-                                        <form action="login_process.php" method="post">
-                                            <div class="mb-3">
-                                                <label class="form-label">Email Address Or Username</label>
-                                                <input type="text" class="form-control" id="username" name="username"
-                                                    placeholder="Username" />
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">Password</label> <input type="password"
-                                                    class="form-control" id="password" name="password"
-                                                    placeholder="Password" />
-                                            </div>
-                                            <div class="mb-3 form-check">
-                                                <input type="checkbox" class="form-check-input" name="remember_me" />
-                                                <label class="form-check-label" for="rememberMe">Remember me</label>
-                                            </div>
-                                            <div class="modal-footer d-block">
-                                                <button type="submit" class="btn btn-warning float-end">Submit</button>
-                                            </div>
-                                        </form>
+                                </div>
+                            </div> <!-- Modal Sign Up -->
+                            <div class="modal fade" id="modalSignUpForm" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="sign_up_process.php" method="post">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Email Address Or Username</label>
+                                                    <input required type="text" class="form-control" id="username" name="username"
+                                                        placeholder="Username" />
+
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Password</label> <input required type="password"
+                                                        class="form-control" id="password" name="password"
+                                                        placeholder="Password" />
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Phone Number</label>
+                                                    <input required type="text" class="form-control" id="phone_number"
+                                                        name="phone_number" placeholder="Phone Number" />
+                                                </div>
+                                                <div class="mb-3 form-check">
+                                                    <input checked type="radio" class="form-check-input" id="female" name="gender"
+                                                        value="female" />
+                                                    <label class="form-check-label" for="female">Female</label>
+                                                </div>
+                                                <div class="mb-3 form-check ">
+                                                    <input type="radio" class="form-check-input" id="male" name="gender"
+                                                        value="male" />
+                                                    <label class="form-check-label" for="male">Male</label>
+                                                </div>
+                                                <div class="modal-footer d-block">
+
+                                                    <button type="submit" class="btn btn-warning float-end">Submit</button>
+                                                </div>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div> <!-- Modal Sign Up -->
-                        <div class="modal fade" id="modalSignUpForm" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form action="sign_up_process.php" method="post">
-                                            <div class="mb-3">
-                                                <label class="form-label">Email Address Or Username</label>
-                                                <input type="text" class="form-control" id="username" name="username"
-                                                    placeholder="Username" />
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">Password</label> <input type="password"
-                                                    class="form-control" id="password" name="password"
-                                                    placeholder="Password" />
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">Phone Number</label>
-                                                <input type="text" class="form-control" id="phone_number" name="phone_number"
-                                                    placeholder="Phone Number"/>
-                                            </div>
-                                            <div class="mb-3 form-check">
-                                                <input type="checkbox" class="form-check-input" id="signup" />
-                                                <label class="form-check-label" for="signup">By
-                                                    clicking Sign Up, you agree to our Terms, Privacy Policy
-                                                    and Cookies Policy.</label>
-                                            </div>
-                                            <div class="modal-footer d-block">
-
-                                                <button type="submit" class="btn btn-warning float-end">Submit</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <?php }else{?>
-                    <!-- <%
+                        </li>
+                    <?php } else { ?>
+                        <!-- <%
                     } else {
                     %>-->
-                    <li class="nav-item dropdown"><a
-                        class="nav-link dropdown-toggle text-light fs-5" href="#"
-                        role="button" data-bs-toggle="dropdown" aria-expanded="false"><?php echo $_SESSION['username']?></a>
+                        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle text-light fs-5" href="#"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <?php echo $_SESSION['username'] ?>
+                            </a>
 
-                        <ul class="dropdown-menu">
-                        <li>
-                            <form action="profile.php" method="post">
-                            <input type="hidden" name="username" value="<?php echo $_SESSION['username']?>">
-                            <button type="submit"
-                                class="nav-link text-dark">Profile</button>
-                                </form>
-                            </li>
-                                <li><hr class="dropdown-divider"></li>
-                            <li><a type="button" href="sign_out_process.php"
-                                class="nav-link text-dark"> Sign Out</a></li>                                                    
-                        </ul> <?php }?> 
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <form action="profile.php" method="post">
+                                        <input type="hidden" name="username" value="<?php echo $_SESSION['username'] ?>">
+                                        <button type="submit" class="nav-link text-dark">Profile</button>
+                                    </form>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a type="button" href="sign_out_process.php" class="nav-link text-dark"> Sign Out</a>
+                                </li>
+                            </ul>
+                        <?php } ?>
                 </ul>
             </div>
         </div>
@@ -235,5 +246,13 @@
 
     <script src="./public/js/sitescript.js"></script>
 </body>
+<script>
+
+    <?php if (isset($_SESSION['alert'])) { ?>
+        alert("<?php echo $_SESSION['alert'] ?>")
+        <?php unset($_SESSION['alert']);
+    } ?>
+
+</script>
 
 </html>

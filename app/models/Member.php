@@ -1,8 +1,9 @@
 <?php
 class Member extends Database{
-    function store ($username,$password,$phoneNumber){
-        $sql = parent::$connection->prepare("INSERT INTO `members`(`username`, `password`,`phone_number`) VALUES (?,?,?)");
-        $sql->bind_param('sss',$username,$password,$phoneNumber);        
+
+    function store ($username,$password,$phoneNumber,$gender){
+        $sql = parent::$connection->prepare("INSERT INTO `members`(`username`, `password`,`phone_number`,`gender`) VALUES (?,?,?,?)");
+        $sql->bind_param('ssss',$username,$password,$phoneNumber,$gender);        
         return $sql->execute();
     }
     
@@ -47,5 +48,10 @@ class Member extends Database{
         $sql->bind_param('s',$username);
         return $userInfo = parent::select($sql)[0];
         
+    }
+    function update($username,$phoneNumber,$gender){
+        $sql = parent::$connection->prepare('UPDATE `members` SET `phone_number`= ? ,`gender`= ?  WHERE `username` like ?');
+        $sql ->bind_param('sss',$phoneNumber,$gender,$username);
+        return $sql->execute();
     }
 }

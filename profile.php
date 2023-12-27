@@ -6,7 +6,8 @@ $template = new Template();
 $userInfo = $memberModel->getMember($username);
 
 $slot = $template->render('profile_block',['username' => $username,
-                                           'phoneNumber' => $userInfo['phone_number']]);
+                                           'phoneNumber' => $userInfo['phone_number'],
+                                           'gender' => $userInfo['gender']]);
 $data = [
     'title' => 'Profile',
     'slot' => $slot

@@ -1,4 +1,12 @@
-
+.form-select{
+    width: auto;
+}
+.form-check{
+    display: inline-block;
+}
+option{
+    overflow-y: scroll;
+}
 ul{
   list-style-type: none;
   padding: 0 0 ;
