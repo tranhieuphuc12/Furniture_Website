@@ -39,4 +39,5 @@ $_SESSION['cart_id'] = $orderId;
 $productModel = new Product();
 $product = $productModel->updateQuantity($productId, $quantity * (-1));
 
+
 header('location: http://localhost/Project_BE1/public/index.php');

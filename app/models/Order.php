@@ -120,10 +120,10 @@ class Order extends Database
         return parent::select($sql);
     }
 
-    public function countQuantity( $orderID)
+    public function sumQuantity( $orderID)
     {
         //Find order_id by username and status
-        $sql = parent::$connection->prepare('SELECT COUNT(`quantity`) FROM `order_product` WHERE `order_id` = ? ');
+        $sql = parent::$connection->prepare('SELECT SUM(`quantity`) as totalQuantity FROM `order_product` WHERE `order_id` = ? ');
         $sql->bind_param('i',$orderID);
         return parent::select($sql);
     }
@@ -132,7 +132,7 @@ class Order extends Database
         //Find order_id by username and status
         $sql = parent::$connection->prepare('UPDATE `orders` SET `status`=? WHERE `order_id` = ?');
         $sql->bind_param('ii',$status, $orderID);
-        return parent::select($sql);
+        return ($sql->execute());
     }
 
 }

@@ -7,9 +7,9 @@ $orderId = $_SESSION['cart_id'];
 
 $orderModel = new Order();
 //Cap nhat so luong cua san pham trong gio hang
-$orderProduct = $orderModel->updateQuantityProductInOrder($orderId, $productId, $quantity);
+$orderProduct = $orderModel->updateQuantityProductInOrder($orderId, $productId, $quantity*(-1));
 //Thay doi so luong san pham
 $productModel = new Product();
-$product = $productModel->updateQuantity($productId, $quantity * (1));
+$product = $productModel->updateQuantity($productId, $quantity);
 
 header('location: http://localhost/Project_BE1/public/show_cart.php');

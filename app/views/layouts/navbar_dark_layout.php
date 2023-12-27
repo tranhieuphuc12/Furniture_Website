@@ -54,8 +54,17 @@
                     <li class="nav-item">
                         <a type="button" class="me-auto nav-link text-light fs-4 position-relative" href="show_cart.php"><i
                                 class="bi bi-basket2-fill"></i> <span id="result"
-                                class="fs-7 position-absolute top-70 start-80 translate-middle badge rounded-pill bg-light text-dark">
-                                0
+                                class="fs-7 position-absolute top-60 start-60 translate-middle badge rounded-pill bg-light text-dark" style="font-size: 14px;">
+                                <?php
+									if (isset($_SESSION['cart_id'])) {
+										$orderModel = new Order();
+										$quantityOrder = $orderModel->sumQuantity($_SESSION['cart_id'])[0]['totalQuantity'];
+										print($quantityOrder);
+									}
+									else{
+										print(0);
+									}
+								?>
 
                             </span></a>
                     <li class="nav-item"><a class="nav-link text-light fs-4" href="#"><i
