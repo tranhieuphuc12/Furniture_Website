@@ -104,6 +104,10 @@
                                                         type="password" class="form-control" id="password" name="password"
                                                         placeholder="Password" />
                                                 </div>
+                                                <div class="mb-3 form-check">
+                                                    <input type="checkbox" class="form-check-input" id="remember_me" name="remember_me" />
+                                                    <label class="form-check-label" for="remember_me">Remember me</label>
+                                                </div>
                                                 <div class="modal-footer d-block">
                                                     <button type="submit"
                                                         class="btn btn-warning float-end submit-btn">Submit</button>
@@ -126,23 +130,24 @@
                                             <form action="sign_up_process.php" method="post">
                                                 <div class="mb-3">
                                                     <label class="form-label">Email Address Or Username</label>
-                                                    <input required type="text" class="form-control" id="username" name="username"
-                                                        placeholder="Username" />
+                                                    <input required type="text" class="form-control" id="username"
+                                                        name="username" placeholder="Username" />
 
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label class="form-label">Password</label> <input required type="password"
-                                                        class="form-control" id="password" name="password"
+                                                    <label class="form-label">Password</label> <input required
+                                                        type="password" class="form-control" id="password" name="password"
                                                         placeholder="Password" />
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label">Phone Number</label>
-                                                    <input required type="text" class="form-control" id="phone_number"
-                                                        name="phone_number" placeholder="Phone Number" />
+                                                    <input type="text" class="form-control" id="phone_number" only
+                                                        pattern="^[0-9]{10}$" name="phone_number"
+                                                        placeholder="Phone Number" />
                                                 </div>
                                                 <div class="mb-3 form-check">
-                                                    <input checked type="radio" class="form-check-input" id="female" name="gender"
-                                                        value="female" />
+                                                    <input checked type="radio" class="form-check-input" id="female"
+                                                        name="gender" value="female" />
                                                     <label class="form-check-label" for="female">Female</label>
                                                 </div>
                                                 <div class="mb-3 form-check ">

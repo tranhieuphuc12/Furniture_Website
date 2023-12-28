@@ -19,10 +19,10 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['phon
         header("location: index.php");
         exit;
     } catch (\Throwable $th) {
-        echo $th;
-        // $_SESSION['alert'] = "Your username has already been used before !!!";
-        // header("location: index.php");
-        // exit;
+        
+        $_SESSION['alert'] = "Your username has already been used before !!!";
+        header("location: index.php");
+        exit;
     }
 
 

@@ -22,18 +22,24 @@ class Member extends Database{
         
     }
 
-    // function storeToken($token,$username) {
-    //     $sql = parent::$connection->prepare("UPDATE `members` SET `token`= ? WHERE `username` like ?");
-    //     $sql->bind_param('ss',$token,$username);
-    //     return $sql->execute();
-    // }
+    function storeToken($token,$username) {
+        $sql = parent::$connection->prepare("UPDATE `members` SET `token`= ? WHERE `username` like ?");
+        $sql->bind_param('ss',$token,$username);
+        return $sql->execute();
+    }
 
-    // function getToken($username){
-    //     $sql =parent::$connection->prepare('SELECT `token` FROM `members` WHERE `username` like ?');
-    //     $sql->bind_param('s',$username);
-    //     $token = parent::select($sql)[0]['token'];
-    //     return $token;
-    // }
+    function getToken($token){
+        $sql =parent::$connection->prepare('SELECT `token` FROM `members` WHERE `token` like ?');
+        $sql->bind_param('s',$token);
+        $tokenDatabase = parent::select($sql)[0]['token'];
+        return $tokenDatabase;
+    }
+    function getUsername($token){
+        $sql =parent::$connection->prepare('SELECT `username` FROM `members` WHERE `token` like ?');
+        $sql->bind_param('s',$token);
+        $username = parent::select($sql)[0]['username'];
+        return $username;
+    }
 
     function updateAvatarImage($fileContent,$username) {
         $sql =parent::$connection->prepare("UPDATE `members` SET `avatar`= ? WHERE `username`like ?");
