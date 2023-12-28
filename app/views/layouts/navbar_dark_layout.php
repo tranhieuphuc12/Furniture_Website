@@ -22,9 +22,9 @@
 <body>
 
     <!-- Nav bar -->
-    <nav class="navbar navbar-expand-lg bg-green navbar-img">
+    <nav id="navbar" class="navbar navbar-expand-lg bg-green navbar-img">
         <div class="container">
-            <a class="navbar-brand" href="#"> <img
+            <a class="navbar-brand" href="../public/index.php"> <img
                     src="https://websitedemos.net/office-furniture-store-04/wp-content/uploads/sites/913/2021/07/site-logo-light.svg">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -35,28 +35,29 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link text-light" href="#">Store</a></li>
-                    <!-- <li class="nav-item"><a class="nav-link text-light" href="#">Office</a></li>
-                    <li class="nav-item"><a class="nav-link text-light" href="#">Home Office</a></li> -->
+                    <!-- </?php if($_SESSION['role_id']):?>
+                        <li class="nav-item"><a class="nav-link text-light" href="#">Store</a></li>
+                    </?php endif?> -->
                 </ul>
                 <ul class="navbar-nav me-3 mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link text-light" href="#">About</a></li>
                     <li class="nav-item"><a class="nav-link text-light" href="#">Contact</a></li>
 
                 </ul>
-                <form class="d-flex" role="search">
+                <form action="index.php" method="GET" class="d-flex" role="search">
                     <input class="p-1 bg-light border border-light border-start-0 rounded-end form-control me-2"
-                        type="search" placeholder="Search Products..." aria-label="Search">
+                        type="search" placeholder="Search Products..." aria-label="Search" name="keyword">
                     <button class="btn bg-yellow" type="submit"><i class="bi bi-search"></i></button>
                 </form>
 
                 <ul class="navbar-nav me-0 ms-1 mb-lg-0">
                     <li class="nav-item">
-                        <button type="button" class="me-auto nav-link text-light fs-4 position-relative" href="#"><i
+                        <a type="button" class="me-auto nav-link text-light fs-4 position-relative" href="show_cart.php"><i
                                 class="bi bi-basket2-fill"></i> <span id="result"
                                 class="fs-7 position-absolute top-70 start-80 translate-middle badge rounded-pill bg-light text-dark">
                                 0
 
-                            </span></button>
+                            </span></a>
                     <li class="nav-item"><a class="nav-link text-light fs-4" href="#"><i
                                 class="bi bi-person-fill"></i></a></li>
 
@@ -177,8 +178,6 @@
     ?>
     <!-- End body content -->
 
-    
-
      <!-- Footer -->
      <div class="container mt-100px">
         <div class="row">
@@ -221,6 +220,9 @@
      
      
     <script src="../asset/js/sitescript.js"></script>
+    <script>
+    
+    </script>
 </body>
 
 </html>

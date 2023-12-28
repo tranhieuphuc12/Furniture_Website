@@ -25,7 +25,7 @@
     <!-- Nav bar -->
 	<nav class="navbar navbar-expand-lg bg-white ">
 		<div class="container">
-			<a class="navbar-brand" href="HomeServlet"> <img
+			<a class="navbar-brand" href="../public/index.php"> <img
 				src="https://websitedemos.net/office-furniture-store-04/wp-content/uploads/sites/913/2021/07/site-logo-dark.svg">
 			</a>
 			<button class="navbar-toggler" type="button"
@@ -36,10 +36,7 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					<!-- <li class="nav-item"><a class="nav-link text-light" href="#">Store</a></li> -->
-					<!-- <li class="nav-item"><a class="nav-link text-light" href="#">Office</a></li>
-					<li class="nav-item"><a class="nav-link text-light" href="#">Home
-							Office</a></li> -->
+				<li class="nav-item"><a class="nav-link text-dark" href="#">Store</a></li>
 				</ul>
 				<ul class="navbar-nav me-3 mb-2 mb-lg-0">
 					<li class="nav-item"><a class="nav-link text-dark" href="#">About</a></li>

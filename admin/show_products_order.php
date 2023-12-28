@@ -15,7 +15,6 @@ if (isset($_GET['status'])) {
 
 $orderModel = new Order();
 $products = $orderModel->getProductsByOrderId($orderId);
-var_dump($products);
 $template = new Template();
 $slot = $template->render('admin_order_detail',['products'=>$products,
                                                 'username' => $username,

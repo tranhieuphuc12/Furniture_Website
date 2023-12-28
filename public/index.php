@@ -1,17 +1,26 @@
 <?php
 require_once '../config/database.php';
 
+$keyword='';
+$categoryId = 0;
 $page = 1;
+$perPage = 6;
+$template = new Template();
+$productModel = new Product();
+
+if(isset($_GET['keyword'])){
+    $keyword = $_GET['keyword'];
+}
+if(isset($_GET['categoryId'])){
+    $categoryId = $_GET['categoryId'];
+}
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
 }
-$perPage = 6;
 
-$template = new Template();
-$productModel = new Product();
-$products = $productModel-> getProductsByPage($page, $perPage);
-$total = $productModel-> getTotalQuantityProducts();
- 
+$products = $productModel-> getProductsByParameter($page, $perPage, $keyword, $categoryId);
+// $products = $productModel-> getProductsByPage($page, $perPage);
+$total = $productModel-> getTotalQuantityProductByParameter($keyword,$categoryId)[0]['total'];
 // Đổ dữ liệu vào blocks
 $slot = $template->render('product_list_block', ['products' => $products,
                                                 'perPage' => $perPage,

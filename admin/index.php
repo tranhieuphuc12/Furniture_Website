@@ -4,7 +4,9 @@ require_once '../config/database.php';
 $orderModel = new Order();
 $products = $orderModel->getAllOrderByStatusForOrderManagement(0);
 $orders = $orderModel->getAllOrdersAsc(0);
-// $products = $orderModel->getProductsByOrderId(1);
+
+
+
 $template = new Template();
 $slot = $template->render('admin_order_block', ['orders'=>$orders,
                                                 'product'=>$products]);

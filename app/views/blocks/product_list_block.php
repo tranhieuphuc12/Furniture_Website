@@ -51,7 +51,7 @@
   <div class="container">
       <div class="d-flex flex-row  justify-content-around">
           <div class="p-2 bd-highlight">
-              <a href="#" class="text-decoration-none text-black text-center">
+              <a href="index.php?categoryId=1" class="text-decoration-none text-black text-center">
                   <div class="block d-block icon-list">
                       <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none">
                           <path d="M8 64L8 24H72V64" stroke="#26222F" stroke-width="4"></path>
@@ -62,7 +62,7 @@
                   <div class="fs-5 fw-bold">Tables</div>
               </a>
           </div>
-          <div class="p-2 bd-highlight"><a href="#" class="text-decoration-none text-black text-center">
+          <div class="p-2 bd-highlight"><a href="index.php?categoryId=2" class="text-decoration-none text-black text-center">
 
                   <div class="block d-block icon-list">
                       <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none">
@@ -76,7 +76,7 @@
                   </div>
                   <div class="fs-5 fw-bold">Chairs</div>
               </a></div>
-          <div class="p-2 bd-highlight"><a href="#" class="text-decoration-none text-black text-center">
+          <div class="p-2 bd-highlight"><a href="index.php?categoryId=3" class="text-decoration-none text-black text-center">
                   <div class="block d-block icon-list">
                       <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none">
                           <path d="M20 16H60C61.1046 16 62 16.8954 62 18V42C62 43.1046 61.1046 44 60 44H20C18.8954 44 18 43.1046 18 42V18C18 16.8954 18.8954 16 20 16Z" stroke="#26222F" stroke-width="4"></path>
@@ -86,7 +86,7 @@
                   </div>
                   <div class="fs-5 fw-bold">Laptop Stands</div>
               </a></div>
-          <div class="p-2 bd-highlight"><a href="#" class="text-decoration-none text-black text-center">
+          <div class="p-2 bd-highlight"><a href="index.php?categoryId=4" class="text-decoration-none text-black text-center">
                   <div class="block d-block icon-list">
                       <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none">
                           <rect x="10" y="10" width="60" height="32" rx="2" stroke="#26222F" stroke-width="4"></rect>
@@ -96,9 +96,17 @@
                       </svg>
 
                   </div>
-                  <div class="fs-5 fw-bold">Tables</div>
+                  <div class="fs-5 fw-bold">Monitor</div>
               </a></div>
-          <div class="p-2 bd-highlight"><a href="#" class="text-decoration-none text-black text-center">
+
+              <div class="p-2 bd-highlight"><a href="index.php?categoryId=5" class="text-decoration-none text-black text-center">
+                  <div class="block d-block icon-list">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none"><path d="M34 28H46" stroke="#26222F" stroke-width="4" stroke-linecap="round"></path><path d="M34 58H46" stroke="#26222F" stroke-width="4" stroke-linecap="round"></path><rect x="10" y="10" width="60" height="56" rx="6" stroke="#26222F" stroke-width="4"></rect><path d="M12 36H68" stroke="#26222F" stroke-width="4"></path><path d="M16 67V72" stroke="#26222F" stroke-width="4"></path><path d="M64 67V72" stroke="#26222F" stroke-width="4"></path></svg>
+
+                  </div>
+                  <div class="fs-5 fw-bold">Cabinets</div>
+              </a></div>
+          <div class="p-2 bd-highlight"><a href="index.php?categoryId=6" class="text-decoration-none text-black text-center">
                   <div class="block d-block icon-list">
                       <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none">
                           <rect x="10" y="10" width="60" height="60" rx="6" stroke="#26222F" stroke-width="4"></rect>
@@ -107,7 +115,7 @@
                   </div>
                   <div class="fs-5 fw-bold">Mouse pads</div>
               </a></div>
-          <div class="p-2 bd-highlight"><a href="#" class="text-decoration-none text-black text-center">
+          <div class="p-2 bd-highlight"><a href="index.php?categoryId=7" class="text-decoration-none text-black text-center">
                   <div class="block d-block icon-list">
                       <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none">
                           <path d="M24 14H52L64.5 41.5L40 69.5" stroke="#26222F" stroke-width="4"></path>
@@ -120,7 +128,7 @@
                   </div>
                   <div class="fs-5 fw-bold">Study lamps</div>
               </a></div>
-          <div class="p-2 bd-highlight"><a href="#" class="text-decoration-none text-black text-center">
+          <div class="p-2 bd-highlight"><a href="index.php?categoryId=8" class="text-decoration-none text-black text-center">
                   <div class="block d-block icon-list">
                       <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none">
                           <path d="M28.1868 67.5L22.6313 47.5H57.3687L51.8132 67.5H28.1868Z" stroke="#26222F" stroke-width="4"></path>
@@ -158,12 +166,18 @@
             // var_dump($products);
             foreach ($products as  $product) : ?>
               <div class="col-4 mb-5">
-                  <div class="card" style="width: 25rem;">
-                      <img src="data:image/jpeg;base64, <?php echo base64_encode($product['image'])?>" class="card-img-top">
+                  <div class="card" style="width: 20rem;">
+                      <img src="../asset/img/products/<?php echo $product['image']?>" class=" card-img-top img-fluid">
                       <div class="card-body">
-                          <h5 class="card-title"><?php echo $product['name'] ?></h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                              the card's content.</p>
+                          <h5><a class="card-title text-center text-decoration-none" href="" ><?php echo $product['name'] ?></a></h5>
+                          <p class="card-text" style="text-align: justify; text-justify: inter-word;">
+                            <?php 
+                            $arrStr = $product['description'];
+                            if(strlen($arrStr) > 70){
+                                $i = strpos($arrStr, " ", 100);
+                                echo mb_substr($arrStr, 0, $i)."<a style='font-size: 14px;' class='text-decoration-none text-secondary' href=''> . . . [view more]</a>";
+                            } else echo $arrStr?>
+                        </p>
                           <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                           <a href="add_to_cart.php?productId=<?php echo $product['id']?>&quantity=1&price=<?php echo $product['price']?>" class="CartBtn d-inline-block text-decoration-none">
                               <span class="IconContainer">
@@ -173,7 +187,7 @@
                               </span>
                               <p class="text">Add to Cart</p>
                           </a>
-                        <div onclick=""><i class="bi bi-heart"></i></div>
+                        <a href="favorite_product.php?productId=<?php echo $product['id']?>"><i class="bi bi-heart"></i></a>
                           <!-- End add to cart -->
                       </div>
                   </div>
@@ -182,37 +196,60 @@
           <?php endforeach ?>
       </div>
       <!-- Pagination -->
+
       <nav aria-label="Page navigation example">
           <ul class="pagination justify-content-center">
-              <?php if ($page != 1) : ?>
+              <?php 
+              $pages = ceil($total / $perPage);
+              $hrefString='';
+              if($pages > 1):
+              if (isset($_GET['keyword'])) { // Xu li khi hien thi theo tim kiem: co keyword
+                $hrefString = "&keyword=" . $_GET['keyword'];
+                } else if (isset($_GET['categoryId'])) { // Xu li khi hien thi theo danh muc
+                $hrefString = "&categoryId=" . $_GET['categoryId'];
+                }
+
+              if ($page != 1) : ?>
+                <li class="page-item">
+                      <a class="page-link" href="index.php?page=1<?php echo $hrefString?>" aria-label="First">
+                          <span aria-hidden="true">&laquo;&laquo;</span>
+                      </a>
+                  </li>
                   <li class="page-item">
-                      <a class="page-link" href="index.php?page=<?php echo ($page - 1) ?>" aria-label="Previous">
+                      <a class="page-link" href="index.php?page=<?php echo (($page - 1).$hrefString) ?>" aria-label="Previous">
                           <span aria-hidden="true">&laquo;</span>
                       </a>
                   </li>
               <?php
                 endif;
-                $pages = ceil($total / $perPage);
                 for ($i = 1; $i <= $pages; $i++) :
                 ?>
-                  <li class="page-item"><a <?php echo ($page == $i) ? ' style="background:#ffca2c; color: #d10000;"' : '' ?> class="page-link btn btn-outline-warning" href="index.php?page=<?php echo $i ?>"><?php echo $i ?></a></li>
+                  <li class="page-item"><a <?php echo ($page == $i) ? ' style="background:#ffca2c; color: #d10000;"' : '' ?> class="page-link btn btn-outline-warning" href="index.php?page=<?php echo $i.$hrefString ?>"><?php echo $i ?></a></li>
 
               <?php
                 endfor;
                 if ($page != $pages) :
                 ?>
                   <li class="page-item">
-                      <a class="page-link" href="index.php?page=<?php echo ($page + 1) ?>" aria-label="Next">
+                      <a class="page-link" href="index.php?page=<?php echo ($page + 1).$hrefString ?>" aria-label="Next">
                           <span aria-hidden="true">&raquo;</span>
                       </a>
                   </li>
-              <?php endif ?>
+                  <li class="page-item">
+                      <a class="page-link" href="index.php?page=<?php echo $pages.$hrefString ?>" aria-label="Last">
+                          <span aria-hidden="true">&raquo;&raquo;</span>
+                      </a>
+                  </li>
+              <?php 
+              endif;
+            endif;
+              ?>
           </ul>
       </nav>
       <!-- End pagination -->
       <hr class="mt-30px text-warning">
       <div class="text-center">
-          <a class="shop_collections_btn btn btn-warning text-center" href="#">View all products &emsp;<i class="bi bi-arrow-right"></i></a>
+          <a class="shop_collections_btn btn btn-warning text-center" href="index.php">View all products &emsp;<i class="bi bi-arrow-right"></i></a>
       </div>
 
 
@@ -282,19 +319,19 @@
   </div>
   <div class="row">
       <div class="col-4">
-          <img src="../asset/img/thumbnails/img_4.png">
+          <img class="img-fluid" src="../asset/img/thumbnails/img_4.png">
           <div class="text-center mt-3">
               <a href="#" class="fs-5 fw-bold text-decoration-none text-black text-center">Chairs</a>
           </div>
       </div>
       <div class="col-4">
-          <img src="../asset/img/thumbnails/img_5.png">
+          <img class="img-fluid" src="../asset/img/thumbnails/img_5.png">
           <div class="text-center mt-3">
               <a href="#" class="fs-5 fw-bold text-decoration-none text-black text-center">Cabinets</a>
           </div>
       </div>
       <div class="col-4">
-          <img src="../asset/img/thumbnails/img_6.png">
+          <img class="img-fluid" src="../asset/img/thumbnails/img_6.png">
           <div class="text-center mt-3">
               <a href="#" class="fs-5 fw-bold text-decoration-none text-black text-center">Lamps</a>
           </div>

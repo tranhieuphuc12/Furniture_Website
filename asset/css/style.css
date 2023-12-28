@@ -168,7 +168,7 @@ ul{
       /* Rounded corners */
       text-decoration: none;
       /* No underline */
-      transition-duration: 1s;
+      transition-duration: 0.5s;
   }
 
   .mt-100px {
@@ -189,6 +189,20 @@ ul{
       border: none;
   }
 
+
+  .card-title{
+    height: 48px;
+    width: 100%;
+    display: inline-block;
+  }
+  .card-title:hover{
+    transition: 0.5s ease-in-out;
+    transform: scale(1.1);
+  }
+
+  .card-img-top{
+    height: 185px;
+  }
   .bg-gray {
       background-color: #f8f8f8;
   }
@@ -286,6 +300,8 @@ ul{
     background-color: #afafaf;
     cursor: no-drop;
   }
+
+
   /* Management */
   /* Orders */
 
