@@ -15,7 +15,7 @@
         </div>
         <div class="mb-3">
             <label for="floatingTextarea">Description</label>
-            <textarea class="form-control" placeholder="Description"  name="description" required><?php echo $product['description'] ?></textarea>
+            <textarea id="editor" class="form-control" placeholder="Description"  name="description" required><?php echo $product['description'] ?></textarea>
         </div>
         <div class="mb-3">
             <label for="floatingTextarea">Origin</label> <input class="form-control" placeholder="origin"  name="origin" value="<?php echo $product['origin'] ?>" required>
@@ -40,3 +40,35 @@
 
 
 </div>
+
+<script src="../ckeditor5/build/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'), {
+                //Editor config
+                toolbar: {
+                    items: [
+                        'heading',
+                        '|',
+                        'bold',
+                        'italic',
+                        'underline',
+                        'fontColor',
+                        '|',
+                        'bulletedList',
+                        'numberedList',
+                        'indent',
+                        'outdent',
+                        '|',
+                        'blockQuote',
+                        '|',
+                        'undo',
+                        'redo'
+                    ]
+                }
+            })
+            .then(editor => {
+                window.editor = editor;
+            })
+            .catch(handleSampleError);
+    </script>

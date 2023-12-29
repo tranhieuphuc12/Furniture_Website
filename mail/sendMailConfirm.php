@@ -46,7 +46,7 @@ try {
     //Content
     $mail->isHTML(true);                                  //Set email format to HTML
     $mail->Subject = 'Confirmation Your Order!';
-    $mail->Body    = "Hello $name,<br>
+    $mail->Body    = "Hello $name,<br><br>
 
     We’re happy to let you know that we’ve received your order.<br>
     

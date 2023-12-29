@@ -20,14 +20,14 @@ class Product extends Database{
     {
         $start = ($page - 1) * $perPage;
         if ($keyword == '' && $categoryId == 0){
-            $sql = parent::$connection->prepare("SELECT products.*,categories.name AS category_name FROM `products` INNER JOIN `categories` ON products.category_id = categories.id LIMIT ?, ?");
+            $sql = parent::$connection->prepare("SELECT products.*,categories.name AS category_name FROM `products` INNER JOIN `categories` ON products.category_id = categories.id ORDER BY `products`.quantity DESC LIMIT ?, ?");
             $sql->bind_param('ii',$start, $perPage);
         } else if ($keyword != ''){
             $keyword = "%{$keyword}%";
-            $sql = parent::$connection->prepare("SELECT products.*,categories.name AS category_name FROM `products` INNER JOIN `categories` ON products.category_id = categories.id WHERE `products`.`name` LIKE ? OR `description` LIKE ? LIMIT ?, ?");
+            $sql = parent::$connection->prepare("SELECT products.*,categories.name AS category_name FROM `products` INNER JOIN `categories` ON products.category_id = categories.id WHERE `products`.`name` LIKE ? OR `description` LIKE ? ORDER BY `products`.quantity DESC LIMIT ?, ? ");
             $sql->bind_param('ssii',$keyword,$keyword,$start, $perPage);
         } else if($categoryId != 0){
-            $sql = parent::$connection->prepare("SELECT products.*,categories.name AS category_name FROM `products` INNER JOIN `categories` ON products.category_id = categories.id WHERE `category_id` LIKE ? LIMIT ?, ?");
+            $sql = parent::$connection->prepare("SELECT products.*,categories.name AS category_name FROM `products` INNER JOIN `categories` ON products.category_id = categories.id WHERE `category_id` LIKE ? ORDER BY `products`.quantity DESC LIMIT ?, ? ");
             $sql->bind_param('iii',$categoryId,$start, $perPage);
         }
         return parent::select($sql); 

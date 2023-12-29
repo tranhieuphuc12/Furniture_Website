@@ -7,7 +7,10 @@ use PHPMailer\PHPMailer\SMTP;
 require 'PHPMailer/src/Exception.php';
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
-
+$username;
+if(isset($_GET['username'])){
+    $username=$_GET['username'];
+}
 //Load Composer's autoloader
 //require 'vendor/autoload.php';
 
@@ -25,8 +28,13 @@ try {
     $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
+    $pos = strpos($username, "@",0);
+    $name = mb_substr($username, 0, $pos);
+
+    
+    //Recipients
     $mail->setFrom('tranthianhthu0711@gmail.com', 'Office Furniture Store');
-    $mail->addAddress('22211tt0252@mail.tdc.edu.vn', 'Khang');     //Add a recipient
+    $mail->addAddress($username, $name);    //Add a recipient
     //$mail->addAddress('22211tt4701@mail.tdc.edu.vn', 'Phuc');               //Name is optional
     // $mail->addReplyTo('info@example.com', 'Information');
     // $mail->addCC('cc@example.com');
@@ -39,13 +47,15 @@ try {
     //Content
     $mail->isHTML(true);                                  //Set email format to HTML
     $mail->Subject = 'Confirmation Your Order!';
-    $mail->Body    = "Thank you for your purchase!
+    $mail->Body    = "Dear $name, <br><br>
+    
+    Thank you for your purchase!<br>
 
-    Your order is being processed and should arrive at your destination within 3 days for delivery. Thank you again for your purchase. We would love to hear from you once you receive your items.
+    Your order is being processed and should arrive at your destination within 3 days for delivery. Thank you again for your purchase. We would love to hear from you once you receive your items.<br>
     
-    Kind Regards,
+    Kind Regards,<br>
     
-    The Office Furniture Store sales team
+    The Office Furniture Store sales team.
     
     ";
     //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
@@ -55,3 +65,4 @@ try {
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
+header('location: http://localhost/Project_BE1/admin/index.php');

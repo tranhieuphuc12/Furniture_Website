@@ -46,7 +46,7 @@
 								<?php echo $product['name'] ?>
 							</td>
 							<td>
-								<img src="data:image/jpeg;base64, <?php echo base64_encode($product['image']) ?>" alt=""
+								<img src="../asset/img/products/<?php echo $product['image'] ?>" alt="<?php echo $product['image'] ?>"
 									width="100px">
 
 							</td>
@@ -107,7 +107,7 @@
 				<tr class="row ">
 					<td class="col-sm-6 fw-bold">Total cost of goods</td>
 					<td class="col-sm-6">
-						<?php echo $totalCoG ?>
+						<?php echo $totalCoG ?>$
 					</td>
 				</tr>
 				<tr class="row">
@@ -128,7 +128,7 @@
 						}
 						$percent = (($percentByAccount > $percentByTotal) ? $percentByAccount : $percentByTotal);
 						$discount = $totalCoG * $percent / 100;
-						print($discount . ' (' . ($percent) . '%)');
+						print($discount . '$ (' . ($percent) . '%)');
 						?>
 					</td>
 				</tr>
@@ -141,7 +141,7 @@
 						} else {
 							print(0);
 						}
-						?>
+						?>$
 					</td>
 				</tr>
 

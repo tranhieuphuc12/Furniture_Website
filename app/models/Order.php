@@ -139,11 +139,21 @@ class Order extends Database
     public function getAllOrdersAsc($status)
     {
         //Find order_id by username and status
-        $sql = parent::$connection->prepare('SELECT * 
-                                            FROM `orders` INNER JOIN `status`
-                                            ON orders.status = status.id
+        $sql = parent::$connection->prepare('SELECT *, members.phone_number as phone_number  FROM `orders` 
+                                            INNER JOIN `status` ON orders.status = status.id
+                                            INNER JOIN `members` ON orders.username = members.username
                                             WHERE `status`> ? ORDER BY `status`ASC');
         $sql->bind_param('i',$status);
+        return parent::select($sql);
+    }
+
+    public function getAllOrdersDesc($status,$username)
+    {
+        //Find order_id by username and status
+        $sql = parent::$connection->prepare('SELECT * FROM `orders` 
+                                            INNER JOIN `status` ON orders.status = status.id
+                                            WHERE `status`> ? AND username = ? ORDER BY order_id DESC');
+        $sql->bind_param('is',$status,$username);
         return parent::select($sql);
     }
 
@@ -157,6 +167,8 @@ class Order extends Database
         $sql->bind_param('i',$orderID);
         return parent::select($sql);
     }
+
+   
 
     public function getAllOrderByStatusForOrderManagement($status)
     {
@@ -172,5 +184,11 @@ class Order extends Database
         return parent::select($sql);
     }
    
- 
+    public function getUsernameByOrderId( $orderId)
+    {
+        //Find order_id by username and status
+        $sql = parent::$connection->prepare('SELECT * FROM `orders` WHERE `order_id` = ?;');
+        $sql->bind_param('i',$orderId);
+        return parent::select($sql);
+    }
 }

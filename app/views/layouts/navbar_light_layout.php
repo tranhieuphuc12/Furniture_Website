@@ -50,7 +50,7 @@
 	<!-- Nav bar -->
 	<nav class="navbar navbar-expand-lg bg-white">
 		<div class="container">
-			<a class="navbar-brand" href="<?php echo (!isset($_SESSION['roleAdmin']))?'../public/index.php':''?>"> <img
+			<a class="navbar-brand" href="<?php echo (!isset($_SESSION['roleAdmin']))?'../public/index.php':'#'?>"> <img
 				src="https://websitedemos.net/office-furniture-store-04/wp-content/uploads/sites/913/2021/07/site-logo-dark.svg">
 			</a>
 
@@ -71,7 +71,7 @@
 					<li class="nav-item"><a class="nav-link text-dark" href="#">Contact</a></li>
 
 				</ul>
-				<form class="d-flex" role="search" action="HomeServlet" method="get">
+				<form class="d-flex" role="search" action="#" method="get">
 					<input class="p-1 bg-light border border-light border-start-0 rounded-end form-control me-2"
 						type="search" placeholder="Search Products..." aria-label="Search" name="search" id="search">
 					<button class="btn bg-yellow" type="submit">
@@ -81,7 +81,7 @@
 
 				<ul class="navbar-nav me-0 ms-1 mb-lg-0">
 					<li class="nav-item">
-						<button type="button" class="me-auto nav-link text-light fs-4 position-relative" href="#">
+						<a type="button" class="me-auto nav-link text-light fs-4 position-relative" href="<?php echo (!isset($_SESSION['roleAdmin']))?'../public/show_cart.php':'#'?>">
 							<i class="bi bi-basket2-fill text-dark"></i> <span
 								class=" position-absolute top-60 start-60 translate-middle badge rounded-pill bg-black text-light" style="font-size:14px ;">
 								<?php
@@ -95,7 +95,7 @@
 									}
 								?>
 							</span>
-						</button> <!--<%if (username == null) {%> -->
+						</a> <!--<%if (username == null) {%> -->
 
 							
 						<?php if (!isset($_SESSION['username'])) { ?>
@@ -194,7 +194,12 @@
 
 						<li class="nav-item dropdown"><a class="nav-link dropdown-toggle text-dark fs-5" href="#"
 								role="button" data-bs-toggle="dropdown" aria-expanded="false">
-								<?php echo $_SESSION['username'] ?>
+								<?php 
+								$username = $_SESSION['username'];
+                                $pos = strpos($username, "@",0);
+                                $name = mb_substr($username, 0, $pos);
+                                echo $name; 
+								?>
 							</a>
 
 							<ul class="dropdown-menu">

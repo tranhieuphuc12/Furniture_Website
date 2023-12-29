@@ -24,6 +24,9 @@
 					<h5 class="inline-block title_h6 text-secondary text-center">Customer</h5>
 				</th>
 				<th scope="col">
+					<h5 class="inline-block title_h6 text-secondary text-center">Phone</h5>
+				</th>
+				<th scope="col">
 					<h5 class="inline-block title_h6 text-secondary text-center">Status</h5>
 				</th>
 				<th scope="col">
@@ -48,6 +51,11 @@
 					<td>
 						<h6 class=" py-2 mt-2 text-secondary text-center">
 							<?php echo $order['username'] ?>
+						</h6>
+					</td>
+					<td>
+						<h6 class=" py-2 mt-2 text-secondary text-center">
+							<?php echo $order['phone_number'] ?>
 						</h6>
 					</td>
 					<td>

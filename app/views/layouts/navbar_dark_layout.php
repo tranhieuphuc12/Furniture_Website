@@ -109,13 +109,13 @@
                                         <div class="modal-body">
                                             <form action="login_process.php" method="post">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Email Address Or Username</label>
-                                                    <input required type="email" class="form-control" id="username"
+                                                    <label class="form-label">Email Address</label>
+                                                    <input required type="email" class="form-control" id="login-username"
                                                         name="username" placeholder="Username" />
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label">Password</label> <input required
-                                                        type="password" class="form-control" id="password" name="password"
+                                                        type="password" class="form-control" id="login-password" name="password"
                                                         placeholder="Password" />
                                                 </div>
                                                 <div class="mb-3 form-check">
@@ -143,14 +143,14 @@
                                         <div class="modal-body">
                                             <form action="sign_up_process.php" method="post">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Email Address Or Username</label>
-                                                    <input required type="email" class="form-control" id="username"
+                                                    <label class="form-label">Email Address</label>
+                                                    <input required type="email" class="form-control" id="sign-up-username"
                                                         name="username" placeholder="Username" />
 
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label">Password</label> <input required
-                                                        type="password" class="form-control" id="password" name="password"
+                                                        type="password" class="form-control" id="sign-up-password" name="password"
                                                         placeholder="Password" />
                                                 </div>
                                                 <div class="mb-3">
@@ -185,7 +185,11 @@
                     %>-->
                         <li class="nav-item dropdown"><a class="nav-link dropdown-toggle text-light fs-5" href="#"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <?php echo $_SESSION['username'] ?>
+                                <?php 
+                                $username = $_SESSION['username'];
+                                $pos = strpos($username, "@",0);
+                                $name = mb_substr($username, 0, $pos);
+                                echo $name; ?>
                             </a>
 
                             <ul class="dropdown-menu">
@@ -198,7 +202,7 @@
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a type="button" href="sign_out_process.php" class="nav-link text-dark"> Sign Out</a>
+                                <li><a type="button" href="sign_out_process.php" class="nav-link text-dark">Sign Out</a>
                                 </li>
                             </ul>
                         <?php } ?>
@@ -215,7 +219,6 @@
 
     <?php
     if (!empty($slot)) {
-    if (!empty($slot)) {
         echo $slot;
     }
     ?>
@@ -227,8 +230,6 @@
     <div class="container mt-100px">
         <div class="row">
             <div class="col-3">
-                <img src="https://websitedemos.net/office-furniture-store-04/wp-content/uploads/sites/913/2021/07/site-logo-light.svg"
-                    class="bg-warning text-light" width="200" height="33">
                 <img src="https://websitedemos.net/office-furniture-store-04/wp-content/uploads/sites/913/2021/07/site-logo-light.svg"
                     class="bg-warning text-light" width="200" height="33">
             </div>
@@ -268,7 +269,7 @@
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-    <script src="./public/js/sitescript.js"></script>
+    <script src="../asset/js/sitescript.js"></script>
 </body>
 <script>
     <?php if (isset($_SESSION['alert'])) { ?>

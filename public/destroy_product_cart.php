@@ -1,6 +1,9 @@
 <?php
 require_once '../config/database.php';
-
+$username;
+if (isset($_SESSION['username'])){
+    $username = $_SESSION['username'];
+}
 $producId = 0;
 if (isset($_GET['productId'])) {
     $producId = $_GET['productId'];

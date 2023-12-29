@@ -96,13 +96,13 @@
 						</h6>
 					</th>
 					<td>
-					<h6 class="py-2 my-0 text-secondary text-center d-flex justify-content-center">
-						<a href="product_edit.php?productId=<?php echo $product['id'] ?>&page=<?php echo $page?>" type="button" class="border border-0 bg-transparent">
-							<i class="bi bi-pencil  btn btn-outline-primary"></i>
-						</a>
+						<h6 class="py-2 my-0 text-secondary text-center d-flex justify-content-center">
+							<a href="product_edit.php?productId=<?php echo $product['id'] ?>&page=<?php echo $page ?>" type="button" class="border border-0 bg-transparent">
+								<i class="bi bi-pencil  btn btn-outline-primary"></i>
+							</a>
 						</h6>
 						<h6 class="py-2 my-0 text-secondary text-center d-flex justify-content-center">
-							<a type="button" class="mt-1" onclick="javascript:return confirm('You want to delete this product ?')" href="product_delete.php?productId=<?php echo $product['id']?>"><i class="bi bi-trash  btn btn-outline-danger"></i></a>
+							<a type="button" class="mt-1" onclick="javascript:return confirm('You want to delete this product ?')" href="product_delete.php?productId=<?php echo $product['id'] ?>"><i class="bi bi-trash  btn btn-outline-danger"></i></a>
 						</h6>
 					</td>
 				</tr>
@@ -174,7 +174,7 @@
 					</div>
 					<div class="mb-3">
 						<label for="add-product-description">Description</label>
-						<textarea class="form-control" placeholder="Description" id="add-product-description" name="description" required></textarea>
+						<textarea class="form-control" placeholder="Description" id="editor" name="description" required></textarea>
 					</div>
 					<div class="mb-3">
 						<label for="add-product-origin">Origin</label> <input class="form-control" placeholder="Origin" id="add-product-origin" name="origin" required>
@@ -275,7 +275,7 @@
 	// 	let description = document.querySelector('#edit-product-description');
 	// 	let origin = document.querySelector('#edit-product-origin');
 	// 	let imageOld =document.querySelector('#imageOld');
-		
+
 	// 	id.textContent = '#' +dataId;
 	// 	name.setAttribute('value', dataName);
 	// 	price.setAttribute('value', dataPrice);
@@ -292,4 +292,35 @@
 	// 	});
 
 	// }
+</script>
+<script src="../ckeditor5/build/ckeditor.js"></script>
+<script>
+	ClassicEditor
+		.create(document.querySelector('#editor'), {
+			//Editor config
+			toolbar: {
+				items: [
+					'heading',
+					'|',
+					'bold',
+					'italic',
+					'underline',
+					'fontColor',
+					'|',
+					'bulletedList',
+					'numberedList',
+					'indent',
+					'outdent',
+					'|',
+					'blockQuote',
+					'|',
+					'undo',
+					'redo'
+				]
+			}
+		})
+		.then(editor => {
+			window.editor = editor;
+		})
+		.catch(handleSampleError);
 </script>
