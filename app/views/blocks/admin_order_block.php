@@ -29,11 +29,6 @@
 				<th scope="col">
 					<h5 class="inline-block title_h6 text-secondary text-center">Action</h5>
 				</th>
-				<th scope="col">
-					<h5 class="inline-block title_h6 text-secondary text-center">
-						<i class="bi bi-trash3"></i>
-					</h5>
-				</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -68,12 +63,6 @@
 							</a>
 						</h6>
 					</td>
-					<td>
-						<h6 class="py-2 my-0 text-secondary text-center d-flex justify-content-center">
-							<a type="button" class="mt-1" onclick="javascript:return confirm('You want to delete this product ?')" href=""><i class="bi bi-x-circle text-danger"></i></a>
-						</h6>
-					</td>
-
 				</tr>
 			<?php endforeach ?>
 		</tbody>

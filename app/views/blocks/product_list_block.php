@@ -30,17 +30,17 @@
                 $temp = 2;
             } ?>
             <!-- Recent last -->
-            <div class="col-md-7 col-12">
+            <div class="col-md-6 col-12">
                 <div class="img_text">
-                    <img src="../asset/img/products/<?php echo $productsRecent[$temp]['image'] ?>" class="img-fluid ">
+                    <img src="../asset/img/products/<?php echo $productsRecent[$temp]['image'] ?>" class="img-fluid" style="width: 100%; margin-top: 130px;">
                     <a href="detail.php?id=<?php
-                                            echo $productsRecent[$temp]['id'] ?>" class="bottom-left fs-3"><?php echo $productsRecent[$temp]['name'] ?> &nbsp <i class="bi bi-arrow-right "></i></a>
+                                            echo $productsRecent[$temp]['id'] ?>" class="bottom-left fs-3"><?php echo $productsRecent[$temp]['category_name'] ?> &nbsp <i class="bi bi-arrow-right "></i></a>
                 </div>
             </div>
 
             <?php if (count($productsRecent) >= 2) { ?>
                 <!-- Recent older -->
-                <div class="col-md-5 col-12">
+                <div class="col-md-6 col-12">
                     <div class="d-flex flex-column align-items-center bd-highlight mb-3">
 
                         <?php
@@ -50,9 +50,9 @@
                         } ?>
                         <div class="p-1 bd-highlight">
                             <div class="img_text">
-                                <img src="../asset/img/products/<?php echo $productsRecent[$temp1]['image'] ?>" class="img-fluid ">
+                                <img src="../asset/img/products/<?php echo $productsRecent[$temp1]['image'] ?>" class="img-fluid">
                                 <a href="detail.php?id=<?php
-                                                        echo $productsRecent[$temp1]['id'] ?>" class="bottom-left-2 fs-3"><?php echo $productsRecent[$temp1]['name'] ?> &nbsp <i class="bi bi-arrow-right "></i></a>
+                                                        echo $productsRecent[$temp1]['id'] ?>" class="bottom-left-2 fs-3"><?php echo $productsRecent[$temp1]['category_name'] ?> &nbsp <i class="bi bi-arrow-right "></i></a>
 
                             </div>
                         </div>
@@ -63,7 +63,7 @@
                                 <div class="img_text">
                                     <img src="../asset/img/products/<?php echo $productsRecent[0]['image'] ?>" class="img-fluid ">
                                     <a href="detail.php?id=<?php
-                                                            echo $productsRecent[0]['id'] ?>" class="bottom-left-2 fs-3"><?php echo $productsRecent[0]['name'] ?> &nbsp <i class="bi bi-arrow-right "></i></a>
+                                                            echo $productsRecent[0]['id'] ?>" class="bottom-left-2 fs-3"><?php echo $productsRecent[0]['category_name'] ?> &nbsp <i class="bi bi-arrow-right "></i></a>
                                 </div>
                             </div>
                         <?php } ?>
@@ -235,7 +235,9 @@
                                 <?php
                                 if ($product['quantity'] > 0) {
                                 ?>
-                                    <a href="add_to_cart.php?productId=<?php echo $product['id'] ?>&quantity=1&price=<?php echo $product['price'] ?>" class="CartBtn d-inline-block text-decoration-none">
+                                    <!-- href="add_to_cart.php?productId=< ?php echo $product['id'] ?>&quantity=1&price=< ?php echo $product['price'] ?>" -->
+
+                                    <a onclick="<?php echo (isset($_SESSION['username'])) ? '' : 'return confirm(\'You need sign up before shopping.\')' ?>" href="<?php echo (isset($_SESSION['username'])) ? 'add_to_cart.php?productId=' . $product['id'] . '&quantity=1&price=' . $product['price'] : '#' ?>" class="CartBtn d-inline-block text-decoration-none">
                                         <span class="IconContainer">
                                             <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512" fill="rgb(17, 17, 17)" class="cart">
                                                 <path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z">
@@ -255,7 +257,7 @@
                                 ?>
                             </div>
                             <div class="col-4">
-                                <a href="favorite_product.php?productId=<?php echo $product['id'] ?>">
+                                <a onclick="<?php echo (isset($_SESSION['username'])) ? '' : 'return confirm(\'You need sign up before shopping.\')' ?>" href="<?php echo (isset($_SESSION['username'])) ? 'favorite_product.php?productId=' . $product['id'] : '#' ?>">
 
                                     <i class="bi fs-3 <?php if (in_array($product['id'], $productsFav)) {
                                                             print('bi-heart-fill text-danger');
@@ -264,7 +266,7 @@
                                                         }
 
                                                         ?>
-"></i></a>
+                                "></i></a>
                             </div>
                         </div>
 
@@ -397,45 +399,55 @@
     <h2 class="text-center fw-bold fs-1">WISH LIST</h2>
     <p class="text-secondary text-center">Duis enim fermentum id et molestie arcu sagittis, sapien turpis praesent
         consectetur <br> dolor lobortis posuere adipiscing</p>
-</div>
-<div style="min-height: 200px;" class="row">
-    <!-- carousel wish list -->
-    <div id="carouselExampleCaptions" class="carousel slide">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" style="background-color: black;"></button>
-            <?php
-            $i = 1;
-            foreach ($listFav as $productFav) {
-                if ($i != sizeof($listFav)) { ?>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<?php echo $i++ ?>" aria-label="Slide <?php echo $i ?>" style="background-color: black;"></button>
-            <?php
-                }
-            } ?>
-        </div>
-        <div class="carousel-inner">
-            <?php
-            $i = 0;
-            foreach ($listFav as $productFav) : ?>
-                <div class="carousel-item <?php echo (($i++ == 0) ? 'active' : '') ?>">
-                    <img src="../asset/img/thumbnails/img_4.png" class="d-block img-fluid" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5 class="text-black">
-                            <?php echo $productFav['name'] ?>
-                        </h5>
-                        <p class="text-black">Some representative placeholder content for the first slide.</p>
+
+    <div style="min-height: 200px;" class="row">
+        <!-- carousel wish list -->
+        <div id="carouselExampleCaptions" class="carousel slide">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" style="background-color: black;"></button>
+                <?php
+                $i = 1;
+                foreach ($listFav as $productFav) {
+                    if ($i != sizeof($listFav)) { ?>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<?php echo $i++ ?>" aria-label="Slide <?php echo $i ?>" style="background-color: black;"></button>
+                <?php
+                    }
+                } ?>
+            </div>
+            <div class="carousel-inner">
+                <?php
+                $i = 0;
+                foreach ($listFav as $productFav) : ?>
+                    <div class="carousel-item <?php echo (($i++ == 0) ? 'active' : '') ?>">
+                        <div class="d-flex" style="margin-bottom: 150px;">
+                            <img src="../asset/img/products/<?php echo $productFav['image'] ?>" class=" mx-auto d-block img-fluid" alt="...">
+                        </div>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5 class="text-black">
+                                <?php echo $productFav['name'] ?>
+                            </h5>
+                            <p class="text-black" style="padding: 0px 100px;">
+                                <?php
+                                $arrStr = $product['description'];
+                                if (strlen($arrStr) > 70) {
+                                    $i = strpos($arrStr, " ", 100);
+                                    echo mb_substr($arrStr, 0, $i) . "<a style='font-size: 14px;' class='text-decoration-none text-secondary' href='detail.php?id=" . $product['id'] . "'> . . . [view more]</a>";
+                                } else echo $arrStr ?>
+                            </p>
+                        </div>
                     </div>
-                </div>
-            <?php
-            endforeach ?>
+                <?php
+                endforeach ?>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: black;"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon " aria-hidden="true" style="background-color: black;"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: black;"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-            <span class="carousel-control-next-icon " aria-hidden="true" style="background-color: black;"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
     </div>
 </div>
 

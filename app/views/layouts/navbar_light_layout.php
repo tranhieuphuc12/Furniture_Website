@@ -19,7 +19,7 @@
 		crossorigin="anonymous"></script>
 
 
-	<link rel="stylesheet" href="public/css/style.css">
+	<link rel="stylesheet" href="../asset/css/style.css">
 	<style>
 		.navbar {
 			background-image: none;
@@ -50,19 +50,23 @@
 	<!-- Nav bar -->
 	<nav class="navbar navbar-expand-lg bg-white">
 		<div class="container">
-			<a class="navbar-brand" href="../public/index.php"> <img
+			<a class="navbar-brand" href="<?php echo (!isset($_SESSION['roleAdmin']))?'../public/index.php':''?>"> <img
 				src="https://websitedemos.net/office-furniture-store-04/wp-content/uploads/sites/913/2021/07/site-logo-dark.svg">
 			</a>
+
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 				data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
 				aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<?php if (!isset($_SESSION['roleAdmin'])) {?>
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				<li class="nav-item"><a class="nav-link text-dark" href="#">Store</a></li>
+				<li class="nav-item"><a class="nav-link text-dark" href="../public/index.php">Store</a></li>
 				</ul>
-				<ul class="navbar-nav me-3 mb-2 mb-lg-0">
+			<?php } ?>
+				
+				<ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
 					<li class="nav-item"><a class="nav-link text-dark" href="#">About</a></li>
 					<li class="nav-item"><a class="nav-link text-dark" href="#">Contact</a></li>
 
@@ -92,6 +96,8 @@
 								?>
 							</span>
 						</button> <!--<%if (username == null) {%> -->
+
+							
 						<?php if (!isset($_SESSION['username'])) { ?>
 						<li class="nav-item dropdown"><a class="nav-link dropdown-toggle text-dark fs-4" href="#"
 								role="button" data-bs-toggle="dropdown" aria-expanded="false"><i
@@ -192,11 +198,11 @@
 							</a>
 
 							<ul class="dropdown-menu">
-								<li><a type="button" href="profile_process.php" class="nav-link text-dark">Profile</a></li>
+								<li><a type="button" href="../public/profile_process.php" class="nav-link text-dark">Profile</a></li>
 								<li>
 									<hr class="dropdown-divider">
 								</li>
-								<li><a type="button" href="sign_out_process.php" class="nav-link text-dark"> Sign Out</a>
+								<li><a type="button" href="../public/sign_out_process.php" class="nav-link text-dark"> Sign Out</a>
 								</li>
 
 

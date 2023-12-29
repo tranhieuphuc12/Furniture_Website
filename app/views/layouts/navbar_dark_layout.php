@@ -17,7 +17,7 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="../asset/css/style.css">
     <style>
         .form-check {
             display: inline-block;
@@ -40,7 +40,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link text-light" href="#">Store</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="../public/index.php">Store</a></li>
                     <!-- </?php if($_SESSION['role_id']):?>
                         <li class="nav-item"><a class="nav-link text-light" href="#">Store</a></li>
                     </?php endif?> -->
@@ -58,7 +58,7 @@
 
                 <ul class="navbar-nav me-0 ms-1 mb-lg-0">
                     <li class="nav-item">
-                        <a type="button" class="me-auto nav-link text-light fs-4 position-relative" href="show_cart.php"><i
+                        <a  class="me-auto nav-link text-light fs-4 position-relative" onclick="<?php echo (isset($_SESSION['username']))?'':'return confirm(\'You need sign up before shopping.\')'?>" href="<?php echo (isset($_SESSION['username']))?'show_cart.php':'#' ?>"><i
                                 class="bi bi-basket2-fill"></i> <span id="result"
                                 class="fs-7 position-absolute top-60 start-60 translate-middle badge rounded-pill bg-light text-dark" style="font-size: 14px;">
                                 <?php
@@ -73,9 +73,6 @@
 								?>
 
                             </span></a>
-                    <li class="nav-item"><a class="nav-link text-light fs-4" href="#"><i
-                                class="bi bi-person-fill"></i></a></li>
-
                     </li>
                     <!--<%if (username == null) {%> -->
                     <?php if (!isset($_SESSION['username'])) { ?>
@@ -109,7 +106,7 @@
                                             <form action="login_process.php" method="post">
                                                 <div class="mb-3">
                                                     <label class="form-label">Email Address Or Username</label>
-                                                    <input required type="text" class="form-control" id="username"
+                                                    <input required type="email" class="form-control" id="username"
                                                         name="username" placeholder="Username" />
                                                 </div>
                                                 <div class="mb-3">
@@ -143,7 +140,7 @@
                                             <form action="sign_up_process.php" method="post">
                                                 <div class="mb-3">
                                                     <label class="form-label">Email Address Or Username</label>
-                                                    <input required type="text" class="form-control" id="username"
+                                                    <input required type="email" class="form-control" id="username"
                                                         name="username" placeholder="Username" />
 
                                                 </div>
@@ -263,7 +260,6 @@
     <script src="./public/js/sitescript.js"></script>
 </body>
 <script>
-
     <?php if (isset($_SESSION['alert'])) { ?>
         alert("<?php echo $_SESSION['alert'] ?>")
         <?php unset($_SESSION['alert']);

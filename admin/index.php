@@ -3,7 +3,7 @@ require_once '../config/database.php';
 
 $orderModel = new Order();
 $products = $orderModel->getAllOrderByStatusForOrderManagement(0);
-$orders = $orderModel->getAllOrdersAsc(0);
+ $orders  = $orderModel->getAllOrdersAsc(0);
 
 
 

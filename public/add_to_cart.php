@@ -1,9 +1,6 @@
 <?php
 require_once '../config/database.php';
-$username = "thu";
-if (isset($_SESSION["username"])) {
-    $username = $_SESSION['username'];
-}
+
 $productId;
 $quantity;
 $price;

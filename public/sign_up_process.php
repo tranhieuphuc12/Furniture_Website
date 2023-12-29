@@ -1,5 +1,5 @@
 <?php
-require_once("config/database.php");
+require_once '../config/database.php';
 
 $memberModel = new Member();
 if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['phone_number']) && isset($_POST['gender'])) {

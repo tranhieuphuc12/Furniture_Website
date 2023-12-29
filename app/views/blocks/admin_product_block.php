@@ -1,4 +1,4 @@
-<div class="container mt-3">
+<div class="container-fluid mt-3 px-5">
 	<!-- Switch page -->
 	<div class="d-flex justify-content-center">
 		<div class="management-order ">
@@ -22,35 +22,35 @@
 	<table class="mt-3 table table-sm table-hover">
 		<thead>
 			<tr>
-				<th scope="col">
-					<h5 class="inline-block title_h6 text-secondary">#</h5>
+				<th scope="col" style="width:40px;">
+					<h5 class="text-center inline-block title_h6 text-secondary">#</h5>
+				</th>
+				<th scope="col" style="width:40px;">
+					<h5 class="text-center inline-block title_h6 text-secondary">ID</h5>
 				</th>
 				<th scope="col">
-					<h5 class="inline-block title_h6 text-secondary">ID</h5>
+					<h5 class="text-center inline-block title_h6 text-secondary">Product</h5>
 				</th>
 				<th scope="col">
-					<h5 class="inline-block title_h6 text-secondary">Product</h5>
+					<h5 class="text-center inline-block title_h6 text-secondary">Quantity</h5>
+				</th>
+				<th scope="col" style="width:100px;">
+					<h5 class="text-center inline-block title_h6 text-secondary"><i class="fs-4 bi bi-currency-dollar"></i></h5>
+				</th>
+				<th scope="col" style="width:300px;">
+					<h5 class="text-center inline-block title_h6 text-secondary">Description</h5>
 				</th>
 				<th scope="col">
-					<h5 class="inline-block title_h6 text-secondary">Quantity</h5>
+					<h5 class="text-center inline-block title_h6 text-secondary">Origin</h5>
 				</th>
 				<th scope="col">
-					<h5 class="inline-block title_h6 text-secondary">Price</h5>
+					<h5 class="text-center inline-block title_h6 text-secondary"><i class="fs-3 bi bi-card-image"></i></h5>
 				</th>
 				<th scope="col">
-					<h5 class="inline-block title_h6 text-secondary">Description</h5>
+					<h5 class="text-center inline-block title_h6 text-secondary">Category</h5>
 				</th>
-				<th scope="col">
-					<h5 class="inline-block title_h6 text-secondary">Origin</h5>
-				</th>
-				<th scope="col">
-					<h5 class="inline-block title_h6 text-secondary">Image</h5>
-				</th>
-				<th scope="col">
-					<h5 class="inline-block title_h6 text-secondary">Category</h5>
-				</th>
-				<th scope="col">
-					<h5 class="inline-block title_h6 text-secondary">Action</h5>
+				<th scope="col" style="width:150px;">
+					<h5 class="text-center inline-block title_h6 text-secondary">Action</h5>
 				</th>
 
 			</tr>
@@ -95,11 +95,14 @@
 						<h6 class=" text-secondary text-center"> <?php echo $product['category_name'] ?>
 						</h6>
 					</th>
-					<td><a href="product_edit.php?productId=<?php echo $product['id'] ?>&page=<?php echo $page?>" type="button" class="border border-0 bg-transparent">
+					<td>
+					<h6 class="py-2 my-0 text-secondary text-center d-flex justify-content-center">
+						<a href="product_edit.php?productId=<?php echo $product['id'] ?>&page=<?php echo $page?>" type="button" class="border border-0 bg-transparent">
 							<i class="bi bi-pencil  btn btn-outline-primary"></i>
 						</a>
+						</h6>
 						<h6 class="py-2 my-0 text-secondary text-center d-flex justify-content-center">
-							<a type="button" class="mt-1" onclick="javascript:return confirm('You want to delete this product ?')" href=""><i class="bi bi-trash  btn btn-outline-danger"></i></a>
+							<a type="button" class="mt-1" onclick="javascript:return confirm('You want to delete this product ?')" href="product_delete.php?productId=<?php echo $product['id']?>"><i class="bi bi-trash  btn btn-outline-danger"></i></a>
 						</h6>
 					</td>
 				</tr>

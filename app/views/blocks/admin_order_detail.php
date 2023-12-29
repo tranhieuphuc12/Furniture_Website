@@ -22,7 +22,7 @@
                     <h5 class="inline-block title_h6 text-secondary text-center">Product</h5>
                 </th>
                 <th scope="col">
-                    <h5 class="inline-block title_h6 text-secondary text-center">Image</h5>
+                    <h5 class="inline-block title_h6 text-secondary text-center"><i class="bi bi-card-image"></i></h5>
                 </th>
                 <th scope="col">
                     <h5 class="inline-block title_h6 text-secondary text-center">Quantity</h5>
@@ -57,7 +57,7 @@
 
                     <td>
                         <h6 class=" py-2  text-secondary text-center">
-                            <img style="width:100px;" src="data:image/jpeg;base64, <?php echo base64_encode($product['image']) ?>">
+                            <img style="width:100px;" src="../asset/img/products/<?php echo $product['image']?>">
                             
                         </h6>
                     </td>

@@ -104,6 +104,13 @@ class Product extends Database{
         $sql->bind_param('sidsssii',$name,$quantity,$price, $description,$origin,$image,$categoryId, $id);
         return ($sql->execute());
     }
+
+    public function setQuantity($id,$quantity)
+    {
+        $sql = parent::$connection->prepare('UPDATE `products` SET `quantity` = ? WHERE `id` = ?');
+        $sql->bind_param('ii',$quantity,$id);
+        return ($sql->execute());
+    }
 }
 
 

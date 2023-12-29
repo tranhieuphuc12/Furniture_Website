@@ -1,7 +1,5 @@
 <?php
 require_once '../config/database.php';
-session_start();
-$_SESSION['username']="thu";
 $producId = 0;
 $username = "unknown";
 if (isset($_SESSION['username'])){

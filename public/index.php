@@ -25,7 +25,7 @@ if (!isset($_SESSION['username'])&&isset($_COOKIE['remember_me'])) {
 
 $keyword='';
 $categoryId = 0;
-$username = 'thu';
+$username ='';
 if (isset($_SESSION['username'])) {
     $username = $_SESSION['username'];
 }

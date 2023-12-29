@@ -1,6 +1,5 @@
 <?php
 require_once '../config/database.php';
-var_dump($username);
 $productId = $_GET['productId'];
 $quantity = $_GET['quantity'];
 $orderId = $_SESSION['cart_id'];

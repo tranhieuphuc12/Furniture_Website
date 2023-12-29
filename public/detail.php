@@ -10,6 +10,18 @@ $productModel = new Product();
 $product = $productModel->getProductByIdProduct($producId); // MANG nhieu san pham nhung thuc chat chi co 1 vif id laf duy nhat
 $template = new Template();
 
+$username ='';
+if (isset($_SESSION['username'])) {
+    $username = $_SESSION['username'];
+}
+$listIdFav = $productModel->getProductsFav($username);
+$favModel = new Favorite();
+$listFav = $favModel->getAllProductFav($username);
+$productsFav = [];
+foreach ($listIdFav as $id) {
+    array_push($productsFav,$id['id']);
+}
+
 $recentView = [];
 if (!isset($_COOKIE["recentView"])){
     array_push($recentView,$_GET['id']);
@@ -27,7 +39,9 @@ else {
 setcookie("recentView",json_encode($recentView),time()+30);
 $data = [
     'title'=>'Chi tiết sản phẩm',
-    'slot'=>$template->render('product_detail_block',['product'=>$product])
+    'slot'=>$template->render('product_detail_block',['product'=>$product,
+                                                        'productsFav'=>$productsFav,
+                                                        'listFav' => $listFav])
 ];
 $template->view('navbar_light_layout', $data);
 ?>
