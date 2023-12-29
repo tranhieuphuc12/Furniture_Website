@@ -1,15 +1,14 @@
-<!-- Switch page -->
-<div>
+<div class="container mt-3">
+	<!-- Switch page -->
+<div class="d-flex justify-content-center align-item-center">
 	<div class="management-order ">
-		<a href="index.php" class="btn btn-warning shop_collections_btn">Orders</a>
+		<a style="width: 100px;"href="index.php" class="btn btn-warning shop_collections_btn">Orders</a>
 	</div>
 	<div class="management-product">
-		<a href="product_management.php" class="btn btn-outline-warning">Products</a>
+		<a style="padding: 9px 20px; width: 100px;"href="product_management.php" class="btn btn-outline-warning">Products</a>
 	</div>
 </div>
-
-<div class="container mt-3">
-	<h2 class="fw-bold title_h6">Orders</h2>
+	<h2 class="fw-bold title_h6 text-center my-5">Orders</h2>
 
 
 	<table class="table table-sm table-hover">

@@ -1,20 +1,25 @@
-<!-- Switch page -->
-<div>
-	<div class="management-order ">
-		<a href="index.php" class="btn btn-outline-warning">Orders</a>
-	</div>
-	<div class="management-product">
-		<a href="product_management.php" class="btn btn-warning shop_collections_btn">Products</a>
-	</div>
-</div>
 <div class="container mt-3">
-	<h2 class="fw-bold title_h6">Management Products</h2>
-	<button type="button" class="nav-link text-dark shop_collections_btn btn btn-warning title_a" data-bs-toggle="modal" data-bs-target="#modalAddProductForm">
-		<i class="bi bi-plus-lg"></i>Product
+	<!-- Switch page -->
+	<div class="d-flex justify-content-center">
+		<div class="management-order ">
+			<a style="padding: 9px 20px; width: 100px;" href="index.php" class="btn btn-outline-warning">Orders</a>
+		</div>
+		<div class="management-product">
+			<a style="width: 100px;" href="product_management.php" class="btn btn-warning shop_collections_btn">Products</a>
+		</div>
+	</div>
+	<h2 class="text-center fw-bold title_h6 mb-3 mt-5">Management Products</h2>
+	<!-- <button type="button" style="padding: 5px 30px; width: 100px;" class="nav-link text-dark shop_collections_btn btn btn-warning title_a " data-bs-toggle="modal" data-bs-target="#modalAddProductForm">
+	<i class="bi bi-plus-lg fs-5">
+	</button> -->
+
+	<button class="btn-add" type="button" data-bs-toggle="modal" data-bs-target="#modalAddProductForm">
+		<div class="sign"><i class="bi bi-plus-lg fs-5"></i></div>
+		<div class="btn-add-text">Add</div>
 	</button>
 
 
-	<table class="table table-sm table-hover">
+	<table class="mt-3 table table-sm table-hover">
 		<thead>
 			<tr>
 				<th scope="col">
@@ -90,10 +95,9 @@
 						<h6 class=" text-secondary text-center"> <?php echo $product['category_name'] ?>
 						</h6>
 					</th>
-					<td><button id="btn-edit-<?php echo $product['id'] ?>" onclick="getInforProductByProductId(<?php echo $product['id'] ?>)" type="button" data-bs-toggle="modal" data-bs-target="#modalUpdateProductForm" data-bs-id="<?php echo $product['id'] ?>" data-bs-name="<?php echo $product['name'] ?>" data-bs-quantity="<?php echo $product['quantity'] ?>" data-bs-price="<?php echo $product['price'] ?>" data-bs-description="<?php echo $product['description'] ?>" data-bs-origin="<?php echo $product['origin'] ?>" data-bs-image="<?php echo $product['image'] ?>" data-bs-categoryid="<?php echo $product['category_id'] ?>" class="border border-0 bg-transparent">
+					<td><a href="product_edit.php?productId=<?php echo $product['id'] ?>&page=<?php echo $page?>" type="button" class="border border-0 bg-transparent">
 							<i class="bi bi-pencil  btn btn-outline-primary"></i>
-						</button>
-
+						</a>
 						<h6 class="py-2 my-0 text-secondary text-center d-flex justify-content-center">
 							<a type="button" class="mt-1" onclick="javascript:return confirm('You want to delete this product ?')" href=""><i class="bi bi-trash  btn btn-outline-danger"></i></a>
 						</h6>
@@ -157,38 +161,36 @@
 			<div class="modal-body">
 				<form action="product_store.php" method="post" enctype='multipart/form-data'>
 					<div class="mb-3">
-						<label for="add-product-name" class="form-label">Name</label> <input type="text" class="form-control" id="add-product-name" name="name" placeholder="Product Name" />
+						<label for="add-product-name" class="form-label">Name</label> <input type="text" class="form-control" id="add-product-name" name="name" placeholder="Product Name" required />
 					</div>
 					<div class="mb-3">
-						<label for="price" class="form-label">Price</label> <input type="number" min="0" step="0.01" class="form-control" id="price" name="price" placeholder="Price" />
+						<label for="price" class="form-label">Price</label> <input type="number" min="0" step="0.01" class="form-control" id="price" name="price" placeholder="Price" required />
 					</div>
 					<div class="mb-3">
-						<label for="quantity" class="form-label">Quantity</label> <input type="number" class="form-control" id="quantity" name="quantity" min="0" placeholder="Quantity" />
+						<label for="quantity" class="form-label">Quantity</label> <input type="number" class="form-control" id="quantity" name="quantity" min="0" placeholder="Quantity" required />
 					</div>
 					<div class="mb-3">
 						<label for="add-product-description">Description</label>
-						<textarea class="form-control" placeholder="Description" id="add-product-description" name="description"></textarea>
+						<textarea class="form-control" placeholder="Description" id="add-product-description" name="description" required></textarea>
 					</div>
 					<div class="mb-3">
-						<label for="add-product-origin">Origin</label> <input class="form-control" placeholder="Origin" id="add-product-origin" name="origin">
+						<label for="add-product-origin">Origin</label> <input class="form-control" placeholder="Origin" id="add-product-origin" name="origin" required>
 					</div>
 					<div class="mb-3">
-						<label for="input-add-image" class="form-label">Image</label> <input class="form-control" type="file" id="input-add-image" name="image">
+						<label for="input-add-image" class="form-label">Image</label> <input class="form-control" type="file" id="input-add-image" name="image" required>
 
 					</div>
 					<div class="mb-3">
 
 						<label for="category_choose">Category</label>
-						<select id="category_choose" name="categoryId" class="form-select" aria-label="Default select example">
+						<select id="category_choose" name="categoryId" class="form-select" aria-label="Default select example" required>
 							<?php foreach ($categories as $category) : ?>
 								<option value="<?php echo $category['id'] ?>"><?php echo $category['name'] ?></option>
 							<?php endforeach ?>
 						</select>
-
 					</div>
-					<div class="modal-footer d-block">
-
-						<button type="submit" class="btn btn-warning float-end">Add</button>
+					<div class="modal-footer d-flex justify-content-center">
+						<button style="padding: 9px 20px; width: 100px;" type="submit" class="btn btn-warning float-end">ADD</button>
 					</div>
 				</form>
 			</div>
@@ -196,18 +198,22 @@
 	</div>
 </div>
 <!-- Modal Edit Product Form  -->
-<div class="modal fade" id="modalUpdateProductForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="modalUpdateProductForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-scrollable">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="edit-product-title">Product Detail</h5>
-				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				<div class="d-flex justify-content-center flex-column flex-grow-1">
+					<h5 class="modal-title text-center" id="edit-product-title">Edit product</h5>
+    				<h6 id="edit-product-id" class="title_h6 text-center text-secondary">#</h6>
+				</div>
+				
+				<button type="button" class="btn-close mx-0" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
 				<form action="product_update.php" method="post" enctype='multipart/form-data'>
-					<input type="hidden" class="form-control" id="edit-product-id" name="id" placeholder="id"/>
+					<input type="hidden" class="form-control" name="id" placeholder="id" />
 					<div class="mb-3">
-						<label class="form-label">Name</label> <input type="text" class="form-control" id="edit-product-name" name="name" placeholder="Product Name" required/>
+						<label class="form-label">Name</label> <input type="text" class="form-control" id="edit-product-name" name="name" placeholder="Product Name" required />
 					</div>
 					<div class="mb-3">
 						<label class="form-label">Price</label> <input type="number" min="0" step="0.01" class="form-control" id="edit-product-price" name="price" placeholder="Price" required />
@@ -224,71 +230,63 @@
 					</div>
 					<div class="mb-3">
 						<label for="formFile" class="form-label">Image</label> <input class="form-control" type="file" id="edit-product-image" name="image">
+						<input class="form-control" type="hidden" id="imageOld" name="imageOld">
 					</div>
 					<div class="mb-3">
 						<label for="category_choose">Category</label>
 						<select id="category_choose" name="categoryId" class="form-select" aria-label="Default select example" required>
 							<?php foreach ($categories as $category) : ?>
-								<option class="option-categories" value="<?php echo $category['id'] ?>" ><?php echo $category['name'] ?></option>
+								<option class="option-categories" value="<?php echo $category['id'] ?>"><?php echo $category['name'] ?></option>
 							<?php endforeach ?>
 						</select>
 
 					</div>
-					<div class="modal-footer d-block">
-						<button type="submit" class="btn btn-warning float-end">Update</button>
+					<div class="modal-footer d-flex justify-content-center">
+						<button  style="padding: 9px 20px; width: 100px;" type="submit" class="btn btn-warning float-end">Update</button>
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
-</div>
+</div> -->
 <script>
-	// function displayFileName() {
-	// 	let inputAddImage = document.querySelector('#input-add-image');
-	// 	let showAddImage = document.querySelector('#show-add-image');
+	// function getInforProductByProductId(productId) {
+	// 	//Get button
+	// 	let btnEdit = document.querySelector('#btn-edit-' + productId);
+	// 	// Get data
+	// 	let dataId = btnEdit.getAttribute('data-bs-id');
+	// 	let dataName = btnEdit.getAttribute('data-bs-name');
+	// 	let dataQuantity = btnEdit.getAttribute('data-bs-quantity');
+	// 	let dataPrice = btnEdit.getAttribute('data-bs-price');
+	// 	let dataDescription = btnEdit.getAttribute('data-bs-description');
+	// 	let dataOrigin = btnEdit.getAttribute('data-bs-origin');
+	// 	let dataImage = btnEdit.getAttribute('data-bs-image');
+	// 	let dataCategoryId = btnEdit.getAttribute('data-bs-categoryid');
 
-	// 	if (inputAddImage.files.length > 0) {
-	// 		var imageName = inputAddImage.files[0].name;
-	// 		showAddImage.setAttribute('src', '../asset/img/' + imageName);
-	// 		showAddImage.setAttribute('alt', imageName);
-	// 	}
+	// 	// Get node update data
+	// 	let title = document.querySelector('#edit-product-title');
+	// 	let id = document.querySelector('#edit-product-id');
+	// 	let name = document.querySelector('#edit-product-name');
+	// 	let price = document.querySelector('#edit-product-price');
+	// 	let quantity = document.querySelector('#edit-product-quantity');
+	// 	let description = document.querySelector('#edit-product-description');
+	// 	let origin = document.querySelector('#edit-product-origin');
+	// 	let imageOld =document.querySelector('#imageOld');
+		
+	// 	id.textContent = '#' +dataId;
+	// 	name.setAttribute('value', dataName);
+	// 	price.setAttribute('value', dataPrice);
+	// 	quantity.setAttribute('value', dataQuantity);
+	// 	description.textContent = dataDescription;
+	// 	origin.setAttribute('value', dataOrigin);
+	// 	imageOld.setAttribute('value', dataImage);
+
+	// 	let optionCategories = document.querySelectorAll('.option-categories');
+	// 	optionCategories.forEach(element => {
+	// 		if (element.getAttribute('value') == dataCategoryId) {
+	// 			element.setAttribute('selected', 'selected');
+	// 		}
+	// 	});
+
 	// }
-	function getInforProductByProductId(productId) {
-		//Get button
-		let btnEdit = document.querySelector('#btn-edit-' + productId);
-		// Get data
-		let dataId = btnEdit.getAttribute('data-bs-id');
-		let dataName = btnEdit.getAttribute('data-bs-name');
-		let dataQuantity = btnEdit.getAttribute('data-bs-quantity');
-		let dataPrice = btnEdit.getAttribute('data-bs-price');
-		let dataDescription = btnEdit.getAttribute('data-bs-description');
-		let dataOrigin = btnEdit.getAttribute('data-bs-origin');
-		let dataImage = btnEdit.getAttribute('data-bs-image');
-		let dataCategoryId = btnEdit.getAttribute('data-bs-categoryid');
-		
-		// Get node update data
-		let title =document.querySelector('#edit-product-title');
-		let id = document.querySelector('#edit-product-id');
-		let name = document.querySelector('#edit-product-name');
-		let price = document.querySelector('#edit-product-price');
-		let quantity = document.querySelector('#edit-product-quantity');
-		let description = document.querySelector('#edit-product-description');
-		let origin = document.querySelector('#edit-product-origin');
-
-		title.textContent = '#' +dataId;
-		id.setAttribute('value', dataId);
-		name.setAttribute('value', dataName);
-		price.setAttribute('value', dataPrice);
-		quantity.setAttribute('value', dataQuantity);
-		description.textContent = dataDescription;
-		origin.setAttribute('value', dataOrigin);
-
-		let optionCategories = document.querySelectorAll('.option-categories');
-		optionCategories.forEach(element => {
-			if (element.getAttribute('value') == dataCategoryId) {
-				element.setAttribute('selected', 'selected');
-			}
-		});
-		
-	}
 </script>

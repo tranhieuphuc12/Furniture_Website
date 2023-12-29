@@ -20,14 +20,14 @@ class Product extends Database{
     {
         $start = ($page - 1) * $perPage;
         if ($keyword == '' && $categoryId == 0){
-            $sql = parent::$connection->prepare("SELECT * FROM `products`  LIMIT ?, ?");
+            $sql = parent::$connection->prepare("SELECT products.*,categories.name AS category_name FROM `products` INNER JOIN `categories` ON products.category_id = categories.id LIMIT ?, ?");
             $sql->bind_param('ii',$start, $perPage);
         } else if ($keyword != ''){
             $keyword = "%{$keyword}%";
-            $sql = parent::$connection->prepare("SELECT * FROM `products`  WHERE `name` LIKE ? OR `description` LIKE ? LIMIT ?, ?");
+            $sql = parent::$connection->prepare("SELECT products.*,categories.name AS category_name FROM `products` INNER JOIN `categories` ON products.category_id = categories.id WHERE `products`.`name` LIKE ? OR `description` LIKE ? LIMIT ?, ?");
             $sql->bind_param('ssii',$keyword,$keyword,$start, $perPage);
         } else if($categoryId != 0){
-            $sql = parent::$connection->prepare("SELECT * FROM `products`  WHERE `category_id` LIKE ? LIMIT ?, ?");
+            $sql = parent::$connection->prepare("SELECT products.*,categories.name AS category_name FROM `products` INNER JOIN `categories` ON products.category_id = categories.id WHERE `category_id` LIKE ? LIMIT ?, ?");
             $sql->bind_param('iii',$categoryId,$start, $perPage);
         }
         return parent::select($sql); 
@@ -38,7 +38,7 @@ class Product extends Database{
         $start = ($page - 1) * $perPage;
         // 2. Tạo câu SQL
         $sql = parent::$connection->prepare("SELECT products.*,categories.name AS category_name FROM `products` INNER JOIN `categories` ON products.category_id = categories.id  LIMIT ?, ?");
-        $sql->bind_param('ii',$page, $perPage);
+        $sql->bind_param('ii',$start, $perPage);
         return parent::select($sql); 
     }
     
@@ -65,11 +65,20 @@ class Product extends Database{
         return parent::select($sql);
     }
 
+    // Lấy cac san pham duoc yeu thich
+    public function getProductsFav($username)
+    {
+        // 2. Tạo câu SQL
+        $sql = parent::$connection->prepare("SELECT id FROM `products` INNER JOIN favorite_product on products.id = favorite_product.product_id WHERE favorite_product.username = ?");
+        $sql->bind_param('s',$username);
+        return parent::select($sql);
+    }
+
     //Lay chi tiet san pham
     public function getProductByIdProduct($productId)
     {
         // 2. Tạo câu SQL
-        $sql = parent::$connection->prepare("SELECT * FROM `products` WHERE `id` = ?");
+        $sql = parent::$connection->prepare("SELECT `products`.*, categories.name AS category_name FROM `products` INNER JOIN `categories`ON `products`.`category_id` =`categories`.id WHERE `products`.`id` = ?");
         $sql->bind_param('i', $productId);
         return parent::select($sql)[0];
     }

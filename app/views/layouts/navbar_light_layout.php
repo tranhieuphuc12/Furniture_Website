@@ -59,9 +59,17 @@
 							class="me-auto nav-link text-light fs-4 position-relative"
 							href="#">
 							<i class="bi bi-basket2-fill text-dark"></i> <span
-								class="fs-7 position-absolute top-70 start-80 translate-middle badge rounded-pill bg-black text-light">
-								<!-- <%=productsCart%> -->
-                                0
+								class=" position-absolute top-60 start-60 translate-middle badge rounded-pill bg-black text-light" style="font-size:14px ;">
+								<?php
+									if (isset($_SESSION['cart_id'])) {
+										$orderModel = new Order();
+										$quantityOrder = $orderModel->sumQuantity($_SESSION['cart_id'])[0]['totalQuantity'];
+										print($quantityOrder);
+									}
+									else{
+										print(0);
+									}
+								?>
 							</span>
 						</button> <!--<%if (username == null) {%> -->
 					
@@ -220,6 +228,8 @@
             <p class="text-secondary text-center">Copyright © 2023 Office Furniture Store</p>
         </div>
      </div>
+
+	
 </body>
 
 </html>

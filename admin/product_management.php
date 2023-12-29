@@ -15,7 +15,6 @@ $perPage = 5;
 $products = $productModel-> getProductsByPage($page, $perPage);
 $total = $productModel-> getTotalQuantityProducts();
 // End
-
 $slot = $template->render('admin_product_block', ['products'=>$products, 
                                                 'categories'=>$categories, 
                                                 'perPage' => $perPage,

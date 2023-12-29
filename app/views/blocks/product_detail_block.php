@@ -2,33 +2,31 @@
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				<img src="data:image/jpg;base64,<%=product.getImage()%>"
+				<img src=">"
 					style="width: 100%; height: auto;">
 			</div>
 			<div class="col">
 				<span class="text-secondary block">
-                     <!-- <%=category%> -->
+				<?php echo $product['category_name']?>
                     </span>
 				<h1>
-                    <!-- <%=product.getName()%> -->
+                    <?php echo $product['name']?>
                 </h1>
-				<span class="text-secondary fs-4">
-                    <!-- $<%=product.getPrice()%>.00 -->
-				</span> <span class="text-secondary">& Free Shipping</span>
+				<span class="text-dark fs-3 fw-bold">
+				<?php echo $product['price']?>$
+				</span> 
+				<span class="text-secondary">& Free Shipping</span>
 				<p class="text-secondary">
-                    <!-- <%=product.getDescription()%> -->
+				<?php echo $product['description']?>
                 </p>
 				
-				<form action="ProductDetailServlet" class="" method="get">
-				 <input type="number" step="1" max="10" value="1" name="quantity" class="quantity-field border border-secondary-subtle text-center w-25">
-				 <input type="hidden" name="id" value="<%= product.getId()%>">				
-				<button type="submit" class="shop_collections_btn btn btn-warning ms-3">Add to cart</button>
+				<form action="add_to_cart.php" method="get">
+					<input type="hidden" name="productId" value="<?php echo $product['id']?>">
+					<input type="hidden" name="quantity" value="1">
+					<input type="hidden" name="price" value="<?php echo $product['price']?>">
+					<button type="submit" class="shop_collections_btn btn btn-warning ms-3">Add to cart</button>
 				</form>
       			<hr class="text-secondary">
-         		
-      
-      
-					
 			</div>
 		</div>
 	</div>

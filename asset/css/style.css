@@ -201,7 +201,7 @@ ul{
   }
 
   .card-img-top{
-    height: 185px;
+    width: 340px;
   }
   .bg-gray {
       background-color: #f8f8f8;
@@ -301,7 +301,66 @@ ul{
     cursor: no-drop;
   }
 
-
+  /* Button Add  */
+  .btn-add {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 45px;
+    height: 45px;
+    border-radius: calc(45px/2);
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition-duration: .3s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+    background: linear-gradient(144deg,#D66900,#E8B03F 50%,#FCED0A);
+  }
+  
+  /* plus sign */
+  .sign {
+    width: 100%;
+    font-size: 2.2em;
+    color: white;
+    transition-duration: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  /* text */
+  .btn-add-text {
+    position: absolute;
+    right: 0%;
+    width: 0%;
+    opacity: 0;
+    color: white;
+    font-size: 1.4em;
+    font-weight: 500;
+    transition-duration: .3s;
+  }
+  /* hover effect on button width */
+  .btn-add:hover {
+    width: 125px;
+    transition-duration: .3s;
+  }
+  
+  .btn-add:hover .sign {
+    width: 30%;
+    transition-duration: .3s;
+    padding-left: 15px;
+  }
+  /* hover effect button's text */
+  .btn-add:hover .btn-add-text {
+    opacity: 1;
+    width: 65%;
+    transition-duration: .3s;
+    padding-right: 15px;
+  }
+  /* button click effect*/
+  .btn-add:active {
+    transform: translate(2px ,2px);
+  }
   /* Management */
   /* Orders */
 

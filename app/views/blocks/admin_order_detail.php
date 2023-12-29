@@ -1,11 +1,10 @@
-<div>
+<div class="container mt-3">
+<div class="d-flex justify-content-center align-item-center">
     <div class="management-order">
-        <a href="index.php" class="btn btn-info">Back</a>
+        <a style="padding: 9px 20px; width: 100px;" href="index.php" class="btn btn-warning shop_collections_btn">Back</a>
     </div>
 </div>
-
-<div class="container mt-3">
-    <div scope="col">
+    <div scope="col" class="my-5" >
         <h2 class="font-italic inline-block title_h6 text-secondary text-center">#<?php echo $products[0]['order_id'] ?> - <?php echo $username ?></h2>
         <h4 class="fst-italic fs-4 text-secondary text-center"> <?php echo ($status == 1)?'Unprocessed':'Processed' ?></h4>
     </div>
@@ -92,7 +91,7 @@
         <?php if($status == 1){?>
         <a href="order_accept.php?orderId=<?php echo $products[0]['order_id']?>" class="my-2 mx-auto btn btn-warning shop_collections_btn">Accept</a>
         <?php } else {?>
-        <a class="my-2 mx-auto btn btn-secondary btn-enable">Accept</a>
+        <a style="width: 100px;"class="my-2 mx-auto btn btn-secondary btn-enable">Accept</a>
         <?php } ?>
     </div>
 

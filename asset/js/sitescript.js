@@ -1,4 +1,3 @@
-
 // // AJAX
 // function getProductsByOrderId(orderId) {
     

@@ -9,7 +9,11 @@ $template = new Template();
 $productOrder = new Order();
 $products = $productOrder->getProductToCart($username,0);
 
-$slot = $template->render('cart_block',['products'=>$products]);
+//Account
+$accountModel = new Account();
+$account = $accountModel->getAccount($username);
+
+$slot = $template->render('cart_block',['products'=>$products, 'account'=>$account]);
 
 
 $data = [
