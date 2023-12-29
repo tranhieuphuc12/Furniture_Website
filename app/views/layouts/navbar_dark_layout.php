@@ -8,6 +8,11 @@
             echo $title;
         } ?> - Office Furniture Store
     </title>
+    <title>
+        <?php if (!empty($title)) {
+            echo $title;
+        } ?> - Office Furniture Store
+    </title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -62,15 +67,14 @@
                                 class="bi bi-basket2-fill"></i> <span id="result"
                                 class="fs-7 position-absolute top-60 start-60 translate-middle badge rounded-pill bg-light text-dark" style="font-size: 14px;">
                                 <?php
-									if (isset($_SESSION['cart_id'])) {
-										$orderModel = new Order();
-										$quantityOrder = $orderModel->sumQuantity($_SESSION['cart_id'])[0]['totalQuantity'];
-										print($quantityOrder);
-									}
-									else{
-										print(0);
-									}
-								?>
+                                if (isset($_SESSION['cart_id'])) {
+                                    $orderModel = new Order();
+                                    $quantityOrder = $orderModel->sumQuantity($_SESSION['cart_id'])[0]['totalQuantity'];
+                                    print($quantityOrder);
+                                } else {
+                                    print(0);
+                                }
+                                ?>
 
                             </span></a>
                     </li>
@@ -207,8 +211,10 @@
     <!-- End Navbar -->
 
     <!-- Body content -->
+    <!-- Body content -->
 
     <?php
+    if (!empty($slot)) {
     if (!empty($slot)) {
         echo $slot;
     }
@@ -217,8 +223,12 @@
 
     <!-- Footer -->
     <div class="container mt-100px">
+    <!-- Footer -->
+    <div class="container mt-100px">
         <div class="row">
             <div class="col-3">
+                <img src="https://websitedemos.net/office-furniture-store-04/wp-content/uploads/sites/913/2021/07/site-logo-light.svg"
+                    class="bg-warning text-light" width="200" height="33">
                 <img src="https://websitedemos.net/office-furniture-store-04/wp-content/uploads/sites/913/2021/07/site-logo-light.svg"
                     class="bg-warning text-light" width="200" height="33">
             </div>
@@ -253,6 +263,7 @@
         <div class="mt-5">
             <p class="text-secondary text-center">Copyright © 2023 Office Furniture Store</p>
         </div>
+    </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
