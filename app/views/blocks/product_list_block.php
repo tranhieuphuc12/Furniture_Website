@@ -1,3 +1,4 @@
+
 <!-- Thumbnail -->
 <div class="myBackgroundSection">
     <div class="container ">
@@ -352,10 +353,11 @@
                 aria-current="true" aria-label="Slide 1" style="background-color: black;"></button>
             <?php
             $i = 1;
-            foreach ($listFav as $productFav){ if($i!=sizeof($listFav)){?>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<?php echo $i++ ?>"
-                    aria-label="Slide <?php echo $i ?>" style="background-color: black;"></button>
-                <?php
+            foreach ($listFav as $productFav) {
+                if ($i != sizeof($listFav)) { ?>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<?php echo $i++ ?>"
+                        aria-label="Slide <?php echo $i ?>" style="background-color: black;"></button>
+                    <?php
                 }
             } ?>
         </div>
@@ -363,7 +365,7 @@
             <?php
             $i = 0;
             foreach ($listFav as $productFav): ?>
-                <div class="carousel-item <?php echo(($i++==0)?'active':'' )?>">
+                <div class="carousel-item <?php echo (($i++ == 0) ? 'active' : '') ?>">
                     <img src="../asset/img/thumbnails/img_4.png" class="d-block img-fluid" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <h5 class="text-black">

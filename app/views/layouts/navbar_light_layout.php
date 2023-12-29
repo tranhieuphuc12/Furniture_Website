@@ -25,7 +25,7 @@
     <!-- Nav bar -->
 	<nav class="navbar navbar-expand-lg bg-white ">
 		<div class="container">
-			<a class="navbar-brand" href="HomeServlet"> <img
+			<a class="navbar-brand" href=""> <img
 				src="https://websitedemos.net/office-furniture-store-04/wp-content/uploads/sites/913/2021/07/site-logo-dark.svg">
 			</a>
 			<button class="navbar-toggler" type="button"
