@@ -1,6 +1,28 @@
 <?php
 require_once '../config/database.php';
 
+$memberModel = new Member();
+// Check if the user is already logged in
+if (!isset($_SESSION['username'])&&isset($_COOKIE['remember_me'])) {
+    $token = $_COOKIE['remember_me'];
+    
+    $tokenDatabase = $memberModel->getToken($token);
+
+    if ($token && $token == $tokenDatabase) {
+        // Log in the user
+        try {
+            $username = $memberModel->getUsername($token);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+            // echo "true";
+        $_SESSION['username'] = $username;
+        // // Redirect to the home page or wherever you want
+        // header('Location: index.php');
+        // exit;
+    }
+}
+
 $keyword='';
 $categoryId = 0;
 $username = 'thu';
