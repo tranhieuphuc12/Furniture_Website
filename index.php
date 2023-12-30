@@ -1,5 +1,5 @@
 <?php
-require_once '../config/database.php';
+require_once 'config/database.php';
 
 $memberModel = new Member();
 // Check if the user is already logged in

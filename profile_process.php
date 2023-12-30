@@ -1,5 +1,5 @@
 <?php
-require_once '../config/database.php';
+require_once 'config/database.php';
 
 $username = isset($_SESSION['username'])?$_SESSION['username']:null;
 

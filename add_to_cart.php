@@ -1,5 +1,5 @@
 <?php
-require_once '../config/database.php';
+require_once 'config/database.php';
 $username;
 if (isset($_SESSION['username'])){
     $username = $_SESSION['username'];
@@ -48,4 +48,4 @@ $productModel = new Product();
 $product = $productModel->updateQuantity($productId, $quantity * (-1));
 
 
-header('location: http://localhost/Project_BE1/public/index.php');
+header('location: http://localhost/Project_BE1/index.php');

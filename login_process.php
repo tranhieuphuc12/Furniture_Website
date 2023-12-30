@@ -1,5 +1,5 @@
 <?php
-require_once '../config/database.php';
+require_once 'config/database.php';
 
 if (isset($_POST['username']) && isset($_POST['password'])) {
     $username = $_POST['username'];
@@ -22,15 +22,14 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
                 }
                 
             }
-            header("location: index.php");
+            header("location: http://localhost/Project_BE1/index.php");
             exit;
         } else if ($check === 'admin') {
-            $_SESSION['roleAdmin'] = $check;
             header('location: http://localhost/Project_BE1/admin/index.php');
         }
     } else {
          $_SESSION['alert'] = "Your password or username might be wrong!!!";
-        header("location: index.php");
+         header("location: http://localhost/Project_BE1/index.php");
         exit;
     }
 }

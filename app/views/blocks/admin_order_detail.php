@@ -57,7 +57,7 @@
 
                     <td>
                         <h6 class=" py-2  text-secondary text-center">
-                            <img style="width:100px;" src="../asset/img/products/<?php echo $product['image']?>">
+                            <img style="width:100px;" src="../public/img/products/<?php echo $product['image']?>">
                             
                         </h6>
                     </td>

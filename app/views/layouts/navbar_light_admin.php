@@ -19,10 +19,11 @@
 		crossorigin="anonymous"></script>
 
 
-	<link rel="stylesheet" href="./public/css/style.css">
+	<link rel="stylesheet" href="../public/css/style.css">
 	<style>
 		.navbar {
 			background-image: none;
+
 		}
 
 		.form-select {
@@ -60,10 +61,6 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				<li class="nav-item"><a class="nav-link text-dark" href="index.php">Store</a></li>
-				</ul>
-			
 				
 				<ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
 					<li class="nav-item"><a class="nav-link text-dark" href="#">About</a></li>
@@ -80,24 +77,8 @@
 
 				<ul class="navbar-nav me-0 ms-1 mb-lg-0">
 					<li class="nav-item">
-						<a type="button" class="me-auto nav-link text-light fs-4 position-relative" href="show_cart.php">
-							<i class="bi bi-basket2-fill text-dark"></i> <span
-								class=" position-absolute top-60 start-60 translate-middle badge rounded-pill bg-black text-light" style="font-size:14px ;">
-								<?php
-									if (isset($_SESSION['cart_id'])) {
-										$orderModel = new Order();
-										if($orderModel->sumQuantity($_SESSION['cart_id'])[0]['totalQuantity'] != null){
-											$quantityOrder = $orderModel->sumQuantity($_SESSION['cart_id'])[0]['totalQuantity'];
-										}else{
-											$quantityOrder = 0;
-										}
-										
-										echo $quantityOrder;
-									} else {
-										echo 0;
-									}
-								?>
-							</span>
+						<a type="button" class="me-auto nav-link text-light fs-4 position-relative" href="#">
+							<i class="bi bi-basket2-fill text-dark"></i> 
 						</a> <!--<%if (username == null) {%> -->
 
 							
@@ -206,11 +187,11 @@
 							</a>
 
 							<ul class="dropdown-menu">
-								<li><a type="button" href="profile_process.php" class="nav-link text-dark">Profile</a></li>
+								<li><a type="button" href="../profile_process.php" class="nav-link text-dark">Profile</a></li>
 								<li>
 									<hr class="dropdown-divider">
 								</li>
-								<li><a type="button" href="sign_out_process.php" class="nav-link text-dark"> Sign Out</a>
+								<li><a type="button" href="../sign_out_process.php" class="nav-link text-dark"> Sign Out</a>
 								</li>
 
 

@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col">
-			<img src="../asset/img/products/<?php echo $product['image'] ?>" style="width: 100%;">
+			<img src="./public/img/products/<?php echo $product['image'] ?>" style="width: 100%;">
 		</div>
 		<div class="col">
 			<span class="text-secondary block">

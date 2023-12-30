@@ -1,7 +1,7 @@
 <div class="container mt-3">
     <div class="d-flex justify-content-center align-item-center">
         <div class="management-order">
-            <a style="padding: 9px 20px; width: 100px;" href="../public/profile_process.php" class="btn btn-warning shop_collections_btn">Back</a>
+            <a style="padding: 9px 20px; width: 100px;" href="profile_process.php" class="btn btn-warning shop_collections_btn">Back</a>
         </div>
     </div>
     <div scope="col" class="my-5">
@@ -59,7 +59,7 @@
 
                     <td>
                         <h6 class=" py-2  text-secondary text-center">
-                            <img style="width:100px;" src="../asset/img/products/<?php echo $product['image'] ?>">
+                            <img style="width:100px;" src="./public/img/products/<?php echo $product['image'] ?>">
 
                         </h6>
                     </td>

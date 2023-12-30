@@ -1,5 +1,5 @@
 <?php
-require_once '../config/database.php';
+require_once 'config/database.php';
 $username;
 if (isset($_SESSION['username'])){
     $username = $_SESSION['username'];
@@ -16,4 +16,4 @@ $orderModel = new Order();
 $productOrder = $orderModel->destroyProductInCart($username,$producId);
 $productModel = new Product();
 $product = $productModel->updateQuantity($producId,$quantity);
-header('location: http://localhost/Project_BE1/public/show_cart.php');
+header('location: http://localhost/Project_BE1/show_cart.php');

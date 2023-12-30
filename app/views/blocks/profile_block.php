@@ -32,7 +32,7 @@ if ($gender === "female") {
                 <div class="modal-body">
                   <form action="profile_update.php" method="post">
                     <div class="mb-3">
-                      <label class="form-label">Email Address Or Username</label>
+                      <label class="form-label">Email Address</label>
                       <input disabled type="text" class="form-control" id="username" name="username" placeholder="Username" />
                     </div>
                     <div class="mb-3">
@@ -151,7 +151,7 @@ if ($gender === "female") {
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body mt-2 mb-2">
-                <form action="../../Project_BE1/profile_update.php" method="post" enctype="multipart/form-data">
+                <form action="profile_update.php" method="post" enctype="multipart/form-data">
                   Select image to upload:
                   <input type="file" name="avatar" id="avatar" accept="image/*">
                   <div class="modal-footer d-block">

@@ -50,7 +50,7 @@ if($_FILES['image']['error'] != UPLOAD_ERR_OK){
     // }
 
     $tempFileName = time().'_'.$productId. '.' . pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
-    $target = '../asset/img/products/' . $tempFileName;
+    $target = '../public/img/products/' . $tempFileName;
 
     if (is_uploaded_file($_FILES['image']['tmp_name']) && move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
         $productModel->updateAll($productId,$productName, $quantity, $price, $description ,$origin, $tempFileName, $categoryId);    

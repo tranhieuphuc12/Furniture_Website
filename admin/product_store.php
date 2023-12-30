@@ -31,7 +31,7 @@ if(!empty($productName) && !empty($price) && !empty($quantity) && !empty($descri
     $productModel = new Product();
 
     $tempFileName = time() . '.' . pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
-    $target = '../asset/img/products/' . $tempFileName;
+    $target = '../public/img/products/' . $tempFileName;
 
     if (is_uploaded_file($_FILES['image']['tmp_name']) && move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
         if($productModel->store($productName, $quantity, $price, $description ,$origin, $tempFileName, $categoryId)) {

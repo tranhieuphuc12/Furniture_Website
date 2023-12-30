@@ -22,7 +22,7 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="../asset/css/style.css">
+    <link rel="stylesheet" href="./public/css/style.css">
     <style>
         .form-check {
             display: inline-block;
@@ -35,7 +35,7 @@
     <!-- Nav bar -->
     <nav id="navbar" class="navbar navbar-expand-lg bg-green navbar-img">
         <div class="container">
-            <a class="navbar-brand" href="../public/index.php"> <img
+            <a class="navbar-brand" href="index.php"> <img
                     src="https://websitedemos.net/office-furniture-store-04/wp-content/uploads/sites/913/2021/07/site-logo-light.svg">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -45,7 +45,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link text-light" href="../public/index.php">Store</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="index.php">Store</a></li>
                     <!-- </?php if($_SESSION['role_id']):?>
                         <li class="nav-item"><a class="nav-link text-light" href="#">Store</a></li>
                     </?php endif?> -->
@@ -69,10 +69,14 @@
                                 <?php
                                 if (isset($_SESSION['cart_id'])) {
                                     $orderModel = new Order();
-                                    $quantityOrder = $orderModel->sumQuantity($_SESSION['cart_id'])[0]['totalQuantity'];
-                                    print($quantityOrder);
+                                    if($orderModel->sumQuantity($_SESSION['cart_id'])[0]['totalQuantity'] != null){
+                                        $quantityOrder = $orderModel->sumQuantity($_SESSION['cart_id'])[0]['totalQuantity'];
+                                    }else{
+                                        $quantityOrder = 0;
+                                    }
+                                    echo $quantityOrder;
                                 } else {
-                                    print(0);
+                                    echo 0;
                                 }
                                 ?>
 
@@ -269,7 +273,7 @@
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-    <script src="../asset/js/sitescript.js"></script>
+    <script src="./public/js/sitescript.js"></script>
 </body>
 <script>
     <?php if (isset($_SESSION['alert'])) { ?>

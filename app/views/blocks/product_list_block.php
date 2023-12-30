@@ -33,7 +33,7 @@
             <!-- Recent last -->
             <div class="col-md-6 col-12">
                 <div class="img_text">
-                    <img src="../asset/img/products/<?php echo $productsRecent[$temp]['image'] ?>" class="img-fluid" style="width: 100%; margin-top: 130px;">
+                    <img src="./public/img/products/<?php echo $productsRecent[$temp]['image'] ?>" class="img-fluid" style="width: 100%; margin-top: 130px;">
                     <a href="detail.php?id=<?php
                                             echo $productsRecent[$temp]['id'] ?>" class="bottom-left fs-3"><?php echo $productsRecent[$temp]['category_name'] ?> &nbsp <i class="bi bi-arrow-right "></i></a>
                 </div>
@@ -51,7 +51,7 @@
                         } ?>
                         <div class="p-1 bd-highlight">
                             <div class="img_text">
-                                <img src="../asset/img/products/<?php echo $productsRecent[$temp1]['image'] ?>" class="img-fluid">
+                                <img src="./public/img/products/<?php echo $productsRecent[$temp1]['image'] ?>" class="img-fluid">
                                 <a href="detail.php?id=<?php
                                                         echo $productsRecent[$temp1]['id'] ?>" class="bottom-left-2 fs-3"><?php echo $productsRecent[$temp1]['category_name'] ?> &nbsp <i class="bi bi-arrow-right "></i></a>
 
@@ -62,7 +62,7 @@
                         <?php if (count($productsRecent) == 3) { ?>
                             <div class="p-1 bd-highlight mt-5">
                                 <div class="img_text">
-                                    <img src="../asset/img/products/<?php echo $productsRecent[0]['image'] ?>" class="img-fluid ">
+                                    <img src="./public/img/products/<?php echo $productsRecent[0]['image'] ?>" class="img-fluid ">
                                     <a href="detail.php?id=<?php
                                                             echo $productsRecent[0]['id'] ?>" class="bottom-left-2 fs-3"><?php echo $productsRecent[0]['category_name'] ?> &nbsp <i class="bi bi-arrow-right "></i></a>
                                 </div>
@@ -218,7 +218,7 @@
         foreach ($products as $product) : ?>
             <div class="col-4 mb-5">
                 <div class="card" style="width: 25rem;">
-                    <img src="../asset/img/products/<?php echo $product['image'] ?>" class="mx-auto card-img-top img-fluid">
+                    <img src="./public/img/products/<?php echo $product['image'] ?>" class="mx-auto card-img-top img-fluid">
                     <div class="card-body">
                         <h5><a class="card-title text-center text-decoration-none" href="detail.php?id=<?php
                                                                                                         echo $product['id'] ?>"><?php echo $product['name'] ?></a></h5>
@@ -421,7 +421,7 @@
                 foreach ($listFav as $productFav) : ?>
                     <div class="carousel-item <?php echo (($i++ == 0) ? 'active' : '') ?>">
                         <div class="d-flex" style="margin-bottom: 150px;">
-                            <img src="../asset/img/products/<?php echo $productFav['image'] ?>" class=" mx-auto d-block img-fluid" alt="...">
+                            <img src="./public/img/products/<?php echo $productFav['image'] ?>" class=" mx-auto d-block img-fluid" alt="...">
                         </div>
                         <div class="carousel-caption d-none d-md-block">
                             <h5 class="text-black">

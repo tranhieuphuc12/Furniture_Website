@@ -46,7 +46,7 @@
 								<?php echo $product['name'] ?>
 							</td>
 							<td>
-								<img src="../asset/img/products/<?php echo $product['image'] ?>" alt="<?php echo $product['image'] ?>"
+								<img src="./public/img/products/<?php echo $product['image'] ?>" alt="<?php echo $product['image'] ?>"
 									width="100px">
 
 							</td>

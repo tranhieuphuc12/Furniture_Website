@@ -89,7 +89,7 @@
 						<h6 class=" text-secondary text-center"> <?php echo $product['origin'] ?>
 						</h6>
 					</th>
-					<td><img style="width:100px;" class="thumnail" src="../asset/img/products/<?php echo $product['image'] ?>" alt="<?php echo $product['image'] ?>">
+					<td><img style="width:100px;" class="thumnail" src="../public/img/products/<?php echo $product['image'] ?>" alt="<?php echo $product['image'] ?>">
 					</td>
 					<th scope="row">
 						<h6 class=" text-secondary text-center"> <?php echo $product['category_name'] ?>

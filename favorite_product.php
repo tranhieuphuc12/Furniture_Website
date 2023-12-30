@@ -1,5 +1,5 @@
 <?php
-require_once '../config/database.php';
+require_once 'config/database.php';
 $producId = 0;
 $username;
 if (isset($_SESSION['username'])){
@@ -15,4 +15,4 @@ if ($fav == false) {
     $favModel->destroyFavorite($username,$producId);
 }
 
-header('location: http://localhost/Project_BE1/public/index.php');
+header('location: http://localhost/Project_BE1/index.php');

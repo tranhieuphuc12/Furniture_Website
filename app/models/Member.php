@@ -14,12 +14,14 @@ class Member extends Database{
         ON roles.id = role_id
         WHERE `username` = ?');
         $sql->bind_param('s',$username);
-        $userPassword = parent::select($sql)[0]['password'];
-        $userRole = parent::select($sql)[0]['name'];
-        if (password_verify($password,$userPassword)) {
-            return $userRole;
+        if(parent::select($sql)!=null){
+            $userPassword = parent::select($sql)[0]['password'];
+            $userRole = parent::select($sql)[0]['name'];
+            if (password_verify($password,$userPassword)) {
+                return $userRole;
+            }
         }
-        
+        return null; 
     }
 
     function storeToken($token,$username) {

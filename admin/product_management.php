@@ -25,4 +25,4 @@ $data = [
     'title'=>'Management Products',
     'slot' =>$slot
 ];
-$template->view('navbar_light_layout', $data);
+$template->view('navbar_light_admin', $data);
